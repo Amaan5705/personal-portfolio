@@ -1,8 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
+
+/* Fix anchor offset for fixed navbar */
+section {
+  scroll-margin-top: 6rem;
+}
+
 
 
