@@ -10,6 +10,28 @@ body,
   background-color: #05070f; /* 🔥 THIS WAS MISSING */
   color: #e5e7eb;
 }
+/* ===== HERO WAVE BACKGROUND ===== */
+.hero-waves {
+  position: relative;
+  background-color: #05070f;
+  overflow: hidden;
+}
+
+.hero-waves::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      120deg,
+      rgba(168, 85, 247, 0.35) 0px,
+      rgba(168, 85, 247, 0.35) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 
 
