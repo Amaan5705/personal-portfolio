@@ -18,47 +18,26 @@ function App() {
           {/* Base background */}
           <div className="absolute inset-0 bg-slate-950 -z-20" />
 
-          {/* Wavy line background */}
-          <div className="absolute inset-0 -z-10 pointer-events-none">
+          {/* STRONG WAVY LINE BACKGROUND */}
+          <div className="absolute inset-0 -z-10 pointer-events-none mix-blend-screen">
             <svg
-              viewBox="0 0 1200 800"
+              viewBox="0 0 1400 900"
               className="w-full h-full"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Left layer */}
               <g
                 fill="none"
-                stroke="rgba(168,85,247,0.45)"
-                strokeWidth="1.2"
+                stroke="rgba(168,85,247,0.8)"
+                strokeWidth="2"
               >
-                {[...Array(22)].map((_, i) => (
+                {[...Array(28)].map((_, i) => (
                   <path
                     key={i}
                     d={`
-                      M -100 ${40 * i}
-                      C 300 ${20 * i},
-                        600 ${60 * i},
-                        1300 ${40 * i}
-                    `}
-                  />
-                ))}
-              </g>
-
-              {/* Right-heavy layer */}
-              <g
-                fill="none"
-                stroke="rgba(168,85,247,0.35)"
-                strokeWidth="1"
-                transform="translate(200, 0)"
-              >
-                {[...Array(18)].map((_, i) => (
-                  <path
-                    key={i}
-                    d={`
-                      M 0 ${50 * i}
-                      C 400 ${20 * i},
-                        700 ${80 * i},
-                        1400 ${50 * i}
+                      M -200 ${30 * i}
+                      C 300 ${80 + 20 * i},
+                        700 ${-40 + 25 * i},
+                        1600 ${30 * i}
                     `}
                   />
                 ))}
@@ -74,7 +53,7 @@ function App() {
               {/* Vertical accent */}
               <div className="flex flex-col items-center pt-2">
                 <div className="w-3 h-3 rounded-full bg-violet-500 mb-2" />
-                <div className="w-[2px] h-32 bg-violet-500/70" />
+                <div className="w-[2px] h-32 bg-violet-500/80" />
               </div>
 
               <div>
@@ -110,7 +89,7 @@ function App() {
               </div>
             </div>
 
-            {/* Empty right column (keeps reference-style spacing) */}
+            {/* Empty right column for balance */}
             <div />
           </div>
 
@@ -228,4 +207,5 @@ function App() {
 }
 
 export default App;
+
 
