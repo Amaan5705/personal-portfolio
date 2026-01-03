@@ -88,6 +88,7 @@ function Experience() {
     <section id="experience" className="py-32 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
 
+        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +98,7 @@ function Experience() {
           Experience Timeline
         </motion.h2>
 
-        {/* Timeline layout */}
+        {/* Timeline */}
         <div className="relative pl-24">
 
           {/* Continuous vertical line */}
@@ -107,25 +108,27 @@ function Experience() {
             {experienceTimeline.map((yearBlock, i) => (
               <div key={i} className="relative">
 
-                {/* YEAR — shifted left, no overlap */}
+                {/* YEAR (shifted up & left — no overlap) */}
                 <div
                   className="
                     absolute
                     left-12
                     -translate-x-full
                     pr-4
+                    -top-6
                     text-indigo-400
                     font-semibold
+                    text-sm
                   "
                 >
                   {yearBlock.year}
                 </div>
 
-                <div className="space-y-12 mt-8">
+                <div className="space-y-12 mt-10">
                   {yearBlock.items.map((item, j) => (
                     <div key={j} className="relative flex gap-8">
 
-                      {/* Logo on the line */}
+                      {/* Logo on timeline */}
                       <div className="relative z-10">
                         <img
                           src={item.logo}
@@ -158,7 +161,9 @@ function Experience() {
                               · {item.event} · {item.org}
                             </p>
                           </div>
-                          <span className="text-xs text-gray-400">
+
+                          {/* Date — clean & aligned */}
+                          <span className="text-xs text-gray-400 mt-1 whitespace-nowrap">
                             {item.period}
                           </span>
                         </div>
@@ -173,6 +178,7 @@ function Experience() {
                     </div>
                   ))}
                 </div>
+
               </div>
             ))}
           </div>
