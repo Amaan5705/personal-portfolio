@@ -61,19 +61,6 @@ const experienceTimeline = [
           "Handled laser maze design, testing, and final deployment.",
         ],
       },
-      {
-        fest: "Phase Shift",
-        org: "BMSCE",
-        event: "DeathScape",
-        role: "Event Coordinator",
-        period: "Nov 2024 – Dec 2024",
-        highlight: false,
-        logo: "/experience/phaseshift.png",
-        points: [
-          "Coordinated teams for smooth event flow.",
-          "Managed logistics and issue resolution during the fest.",
-        ],
-      },
     ],
   },
   {
@@ -92,19 +79,6 @@ const experienceTimeline = [
           "Supported the core team during peak event hours.",
         ],
       },
-      {
-        fest: "Rotaract Club",
-        org: "BMSCE",
-        event: "Social Service Activities",
-        role: "Member",
-        period: "Nov 2023 – May 2024",
-        highlight: false,
-        logo: "/experience/rotaract.png",
-        points: [
-          "Participated in social service initiatives.",
-          "Contributed to volunteering and community-driven activities.",
-        ],
-      },
     ],
   },
 ];
@@ -112,9 +86,8 @@ const experienceTimeline = [
 function Experience() {
   return (
     <section id="experience" className="py-32 px-6 bg-slate-950">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -124,39 +97,45 @@ function Experience() {
           Experience Timeline
         </motion.h2>
 
-        {/* Timeline Container */}
-        <div className="relative pl-20">
+        {/* Timeline layout */}
+        <div className="relative pl-24">
 
-          {/* ONE CONTINUOUS LINE */}
-          <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-slate-800" />
+          {/* Continuous vertical line */}
+          <div className="absolute left-12 top-0 bottom-0 w-[2px] bg-slate-800" />
 
           <div className="space-y-28">
             {experienceTimeline.map((yearBlock, i) => (
-              <div key={i}>
-                {/* Year label (does NOT break line) */}
-                <h3 className="absolute left-0 text-indigo-400 font-semibold">
-                  {yearBlock.year}
-                </h3>
+              <div key={i} className="relative">
 
-                <div className="space-y-12 mt-10">
+                {/* YEAR — shifted left, no overlap */}
+                <div
+                  className="
+                    absolute
+                    left-12
+                    -translate-x-full
+                    pr-4
+                    text-indigo-400
+                    font-semibold
+                  "
+                >
+                  {yearBlock.year}
+                </div>
+
+                <div className="space-y-12 mt-8">
                   {yearBlock.items.map((item, j) => (
                     <div key={j} className="relative flex gap-8">
 
                       {/* Logo on the line */}
                       <div className="relative z-10">
-                        {item.logo ? (
-                          <img
-                            src={item.logo}
-                            alt={item.fest}
-                            className={`w-12 h-12 rounded-full bg-slate-900 border
-                            ${item.highlight
-                              ? "border-indigo-400"
-                              : "border-slate-700"
-                            } object-cover`}
-                          />
-                        ) : (
-                          <div className="w-4 h-4 rounded-full bg-slate-400 border-4 border-slate-950" />
-                        )}
+                        <img
+                          src={item.logo}
+                          alt={item.fest}
+                          className={`w-12 h-12 rounded-full bg-slate-900 border
+                          ${item.highlight
+                            ? "border-indigo-400"
+                            : "border-slate-700"
+                          } object-cover`}
+                        />
                       </div>
 
                       {/* Card */}
