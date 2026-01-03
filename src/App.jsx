@@ -15,21 +15,51 @@ function App() {
           id="home"
           className="relative min-h-screen flex items-center overflow-hidden"
         >
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/40 to-slate-950 -z-10" />
+          {/* Base background */}
+          <div className="absolute inset-0 bg-slate-950 -z-20" />
 
-          {/* Abstract wave background */}
-          <div className="absolute right-0 top-0 h-full w-[60%] opacity-40 -z-10">
+          {/* Wavy line background */}
+          <div className="absolute inset-0 -z-10 pointer-events-none">
             <svg
-              viewBox="0 0 800 800"
+              viewBox="0 0 1200 800"
               className="w-full h-full"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g fill="none" stroke="rgba(139,92,246,0.35)" strokeWidth="1">
+              {/* Left layer */}
+              <g
+                fill="none"
+                stroke="rgba(168,85,247,0.45)"
+                strokeWidth="1.2"
+              >
+                {[...Array(22)].map((_, i) => (
+                  <path
+                    key={i}
+                    d={`
+                      M -100 ${40 * i}
+                      C 300 ${20 * i},
+                        600 ${60 * i},
+                        1300 ${40 * i}
+                    `}
+                  />
+                ))}
+              </g>
+
+              {/* Right-heavy layer */}
+              <g
+                fill="none"
+                stroke="rgba(168,85,247,0.35)"
+                strokeWidth="1"
+                transform="translate(200, 0)"
+              >
                 {[...Array(18)].map((_, i) => (
                   <path
                     key={i}
-                    d={`M0 ${40 * i} C 200 ${20 * i}, 400 ${60 * i}, 800 ${40 * i}`}
+                    d={`
+                      M 0 ${50 * i}
+                      C 400 ${20 * i},
+                        700 ${80 * i},
+                        1400 ${50 * i}
+                    `}
                   />
                 ))}
               </g>
@@ -38,13 +68,13 @@ function App() {
 
           {/* Content */}
           <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            
+
             {/* Left content */}
             <div className="flex items-start gap-6">
               {/* Vertical accent */}
               <div className="flex flex-col items-center pt-2">
                 <div className="w-3 h-3 rounded-full bg-violet-500 mb-2" />
-                <div className="w-[2px] h-32 bg-violet-500/60" />
+                <div className="w-[2px] h-32 bg-violet-500/70" />
               </div>
 
               <div>
@@ -80,7 +110,7 @@ function App() {
               </div>
             </div>
 
-            {/* Right empty space (keeps composition clean like reference) */}
+            {/* Empty right column (keeps reference-style spacing) */}
             <div />
           </div>
 
@@ -95,7 +125,6 @@ function App() {
         <section id="about" className="py-32 px-6 bg-slate-950">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            {/* About Text */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 About Me
@@ -116,7 +145,6 @@ function App() {
               </p>
             </div>
 
-            {/* Skill Highlights */}
             <div className="grid grid-cols-2 gap-6">
               {[
                 { title: "AI & ML", desc: "Computer Vision, LLMs, Edge AI" },
@@ -200,3 +228,4 @@ function App() {
 }
 
 export default App;
+
