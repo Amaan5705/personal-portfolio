@@ -1,40 +1,52 @@
 import { motion } from "framer-motion";
 
 const experiences = [
+  // =================== PHASE SHIFT 2023 ===================
   {
-    eventKey: "deathscape-2-2025",
-    period: "Apr 2025 – May 2025",
+    eventKey: "phaseshift-2023",
+    period: "Nov 2023 – Dec 2023",
     location: "Bengaluru, Karnataka, India",
     side: "right",
     roles: [
       {
-        title: "Club Event Organizer",
-        fest: "UTSAV",
-        event: "DeathScape 2.0",
+        title: "Event Volunteer",
+        fest: "Phase Shift",
+        event: "Laser Tag Event",
         org: "BMSCE",
         points: [
-          "Organized and executed DeathScape 2.0 during UTSAV.",
-          "Managed team coordination and on-site execution.",
-        ],
-      },
-      {
-        title: "Sponsorship Coordinator",
-        fest: "UTSAV", // ✅ FIXED HERE
-        event: "DeathScape 2.0",
-        org: "BMSCE",
-        points: [
-          "Handled sponsor outreach and negotiations.",
-          "Managed sponsor branding and deliverables.",
+          "Assisted in on-ground execution and participant coordination.",
+          "Supported the core team during peak event hours.",
         ],
       },
     ],
   },
 
+  // =================== UTSAV 2024 ===================
+  {
+    eventKey: "utsav-2024",
+    period: "May 2024",
+    location: "Bengaluru, Karnataka, India",
+    side: "left",
+    roles: [
+      {
+        title: "Student Volunteer",
+        fest: "UTSAV",
+        event: "Cultural Fest",
+        org: "BMSCE",
+        points: [
+          "Volunteered during UTSAV cultural fest.",
+          "Assisted with coordination and event operations.",
+        ],
+      },
+    ],
+  },
+
+  // =================== PHASE SHIFT 2024 ===================
   {
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
     location: "Bengaluru, Karnataka, India",
-    side: "left",
+    side: "right",
     roles: [
       {
         title: "Event Organizer",
@@ -42,8 +54,8 @@ const experiences = [
         event: "DeathScape (Laser Maze)",
         org: "BMSCE",
         points: [
-          "Led planning and execution of the DeathScape event.",
-          "Handled laser maze design, testing, and final deployment.",
+          "Led planning and execution of the DeathScape laser maze event.",
+          "Handled laser maze design, testing, and deployment.",
         ],
       },
       {
@@ -59,25 +71,7 @@ const experiences = [
     ],
   },
 
-  {
-    eventKey: "utsav-2024",
-    period: "May 2024",
-    location: "Bengaluru, Karnataka, India",
-    side: "right",
-    roles: [
-      {
-        title: "Student Volunteer",
-        fest: "UTSAV",
-        event: "Cultural Fest",
-        org: "BMSCE",
-        points: [
-          "Volunteered during UTSAV cultural fest.",
-          "Assisted with coordination and event operations.",
-        ],
-      },
-    ],
-  },
-
+  // =================== VTVO 2025 ===================
   {
     eventKey: "vtvo-2025",
     period: "Mar 2025 – Jun 2025",
@@ -97,20 +91,72 @@ const experiences = [
     ],
   },
 
+  // =================== DEATHSCAPE 2.0 – 2025 ===================
   {
-    eventKey: "phaseshift-2023",
-    period: "Nov 2023 – Dec 2023",
+    eventKey: "deathscape-2-2025",
+    period: "Apr 2025 – May 2025",
     location: "Bengaluru, Karnataka, India",
     side: "right",
     roles: [
       {
-        title: "Event Volunteer",
-        fest: "Phase Shift",
-        event: "Laser Tag Event",
+        title: "Club Event Organizer",
+        fest: "UTSAV",
+        event: "DeathScape 2.0",
         org: "BMSCE",
         points: [
-          "Assisted in on-ground execution and participant coordination.",
-          "Supported the core team during peak event hours.",
+          "Organized and executed DeathScape 2.0 during UTSAV.",
+          "Managed team coordination and on-site execution.",
+        ],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        fest: "UTSAV",
+        event: "DeathScape 2.0",
+        org: "BMSCE",
+        points: [
+          "Handled sponsor outreach and negotiations.",
+          "Managed sponsor branding and deliverables.",
+        ],
+      },
+    ],
+  },
+
+  // =================== DEATHSCAPE 3.0 – 2025 (LATEST) ===================
+  {
+    eventKey: "deathscape-3-2025",
+    period: "Aug 2025 – Sep 2025",
+    location: "Bengaluru, Karnataka, India",
+    side: "left",
+    roles: [
+      {
+        title: "Club Event Organizer",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        points: [
+          "Led end-to-end planning and execution of DeathScape 3.0.",
+          "Supervised LED strip testing and final installations.",
+          "Managed on-ground operations during the event.",
+        ],
+      },
+      {
+        title: "Student Fundraiser",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        points: [
+          "Raised funds through student and sponsor outreach.",
+          "Assisted in budgeting and expense coordination.",
+        ],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        points: [
+          "Handled sponsorship acquisition and negotiations.",
+          "Managed sponsor branding and promotional placements.",
         ],
       },
     ],
@@ -122,7 +168,6 @@ function Experience() {
     <section id="experience" className="py-32 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
 
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,8 +178,7 @@ function Experience() {
         </motion.h2>
 
         <div className="relative">
-
-          {/* Center vertical line */}
+          {/* Center line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-28">
@@ -168,7 +212,6 @@ function Experience() {
                       </span>
                     </div>
 
-                    {/* Roles */}
                     {exp.roles.map((role, idx) => (
                       <div key={idx}>
                         <h3 className="text-lg font-semibold text-white">
@@ -192,7 +235,6 @@ function Experience() {
                           ))}
                         </ul>
 
-                        {/* Divider between roles */}
                         {idx !== exp.roles.length - 1 && (
                           <div className="my-5 border-t border-slate-700/60" />
                         )}
