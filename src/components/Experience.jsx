@@ -28,13 +28,26 @@ const experiences = [
     ],
   },
   {
+    title: "Member",
+    fest: "V The Volunteers (VTVO)",
+    event: "Social Service Activities",
+    org: "VTVO",
+    location: "Bengaluru, Karnataka, India",
+    period: "Mar 2025 – Jun 2025",
+    side: "left",
+    points: [
+      "Participated in social service and volunteering initiatives.",
+      "Contributed to community-driven activities and outreach programs.",
+    ],
+  },
+  {
     title: "Event Organizer",
     fest: "Phase Shift",
     event: "DeathScape (Laser Maze)",
     org: "BMSCE",
     location: "Bengaluru, Karnataka, India",
     period: "Oct 2024 – Dec 2024",
-    side: "left",
+    side: "right",
     points: [
       "Led planning and execution of the DeathScape event.",
       "Handled laser maze design, testing, and final deployment.",
@@ -47,7 +60,7 @@ const experiences = [
     org: "BMSCE",
     location: "Bengaluru, Karnataka, India",
     period: "Nov 2024 – Dec 2024",
-    side: "right",
+    side: "left",
     points: [
       "Coordinated teams for smooth event flow.",
       "Managed logistics and issue resolution during the fest.",
@@ -60,7 +73,7 @@ const experiences = [
     org: "BMSCE",
     location: "Bengaluru, Karnataka, India",
     period: "May 2024",
-    side: "left",
+    side: "right",
     points: [
       "Volunteered during UTSAV cultural fest.",
       "Assisted with coordination and event operations.",
@@ -73,7 +86,7 @@ const experiences = [
     org: "BMSCE",
     location: "Bengaluru, Karnataka, India",
     period: "Nov 2023 – Dec 2023",
-    side: "right",
+    side: "left",
     points: [
       "Assisted in on-ground execution and participant coordination.",
       "Supported the core team during peak event hours.",
@@ -86,7 +99,7 @@ const experiences = [
     org: "BMSCE",
     location: "Bengaluru, Karnataka, India",
     period: "Nov 2023 – May 2024",
-    side: "left",
+    side: "right",
     points: [
       "Participated in social service initiatives.",
       "Contributed to volunteering and community-driven activities.",
@@ -144,13 +157,13 @@ function Experience() {
                         {exp.title}
                       </h3>
 
-                      {/* Highlighted date pill */}
+                      {/* Highlighted date */}
                       <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium whitespace-nowrap">
                         {exp.period}
                       </span>
                     </div>
 
-                    <p className="text-sm text-gray-400 mb-3">
+                    <p className="text-sm text-gray-400 mb-2">
                       <span className="text-sky-400 font-medium">
                         {exp.fest}
                       </span>{" "}
