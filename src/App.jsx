@@ -4,87 +4,71 @@ import Experience from "./components/Experience";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#05070f] text-gray-200">
+    <div className="min-h-screen bg-slate-950 text-gray-200 flex flex-col">
       <Navbar />
 
-      {/* Offset for fixed navbar */}
-      <main className="pt-24">
+      {/* Spacing fix for fixed navbar */}
+      <main className="pt-24 flex-grow">
 
         {/* ================= HERO SECTION ================= */}
         <section
           id="home"
-          className="hero-waves min-h-screen flex items-center"
+          className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 overflow-hidden"
         >
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
-            <div className="flex gap-6 max-w-3xl">
+          {/* Background Glow (ORIGINAL) */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 bg-indigo-500/20 blur-[120px] rounded-full" />
+            <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-cyan-400/10 blur-[100px] rounded-full" />
+          </div>
 
-              {/* Vertical Accent */}
-              <div className="flex flex-col items-center pt-3">
-                <div className="w-3 h-3 rounded-full bg-violet-500 mb-2" />
-                <div className="w-[2px] h-40 bg-violet-500/80" />
-              </div>
+          {/* ORIGINAL TEXT */}
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+            Amaan’s Portfolio 🚀
+          </h1>
 
-              {/* Hero Text */}
-              <div>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white">
-                  Hi, I&apos;m{" "}
-                  <span className="text-violet-500">Amaan</span>
-                </h1>
+          <p className="text-lg md:text-xl text-gray-400 mb-10">
+            CSE Student · AI · Game Dev · Web
+          </p>
 
-                <p className="mt-6 text-2xl text-white leading-snug">
-                  I develop user interfaces <br />
-                  and web applications
-                </p>
+          <div className="flex gap-4">
+            <a
+              href="#projects"
+              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition hover:scale-[1.02]"
+            >
+              View Projects
+            </a>
 
-                <p className="mt-4 text-gray-400">
-                  CSE Student · AI · Game Dev · Web
-                </p>
-
-                <div className="mt-10 flex gap-4">
-                  <a
-                    href="#projects"
-                    className="px-7 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg font-semibold transition hover:scale-[1.05]"
-                  >
-                    View Projects
-                  </a>
-
-                  <a
-                    href="#contact"
-                    className="px-7 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.05]"
-                  >
-                    Contact Me
-                  </a>
-                </div>
-              </div>
-            </div>
+            <a
+              href="#contact"
+              className="px-6 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.02]"
+            >
+              Contact Me
+            </a>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 text-sm animate-bounce">
+          <div className="absolute bottom-8 flex flex-col items-center text-gray-400 text-sm animate-bounce">
             <span>Scroll</span>
-            <div className="text-xl">↓</div>
+            <span className="text-xl">↓</span>
           </div>
         </section>
 
-        {/* ================= ABOUT ================= */}
-        <section id="about" className="py-32 px-6 bg-[#05070f]">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              About Me
-            </h2>
-            <p className="text-gray-400 max-w-3xl">
-              I’m a Computer Science Engineering student with a strong interest
-              in building modern web interfaces and intelligent systems.
-              I enjoy working across the stack — from clean UI design to
-              real-world problem solving.
-            </p>
+        {/* ================= ABOUT SECTION ================= */}
+        <section id="about" className="py-32 px-6 bg-slate-950">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                About Me
+              </h2>
+              <p className="text-gray-400 leading-relaxed">
+                I’m a Computer Science Engineering student with a strong interest
+                in building real-world applications using modern technologies.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* ================= PROJECTS ================= */}
         <Projects />
-
-        {/* ================= EXPERIENCE ================= */}
         <Experience />
 
         {/* ================= CONTACT ================= */}
@@ -95,14 +79,12 @@ function App() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Contact Me
           </h2>
-
           <p className="text-gray-400 mb-8">
             Let’s connect and build something awesome 🚀
           </p>
-
           <a
             href="mailto:your-email@example.com"
-            className="inline-block px-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg font-semibold transition"
+            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition"
           >
             Send Email
           </a>
@@ -119,4 +101,3 @@ function App() {
 }
 
 export default App;
-
