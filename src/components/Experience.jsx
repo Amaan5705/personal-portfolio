@@ -11,7 +11,7 @@ const experiences = [
       {
         title: "Event Volunteer",
         fest: "Phase Shift",
-        event: "Laser Tag Event",
+        event: "Zapocalypse (Laser-Tag Event)", // ✅ FIXED
         org: "BMSCE",
         points: [
           "Assisted in on-ground execution and participant coordination.",
@@ -51,11 +51,11 @@ const experiences = [
       {
         title: "Event Organizer",
         fest: "Phase Shift",
-        event: "DeathScape (Laser Maze)",
+        event: "DeathScape", // ✅ LASER MAZE REMOVED
         org: "BMSCE",
         points: [
-          "Led planning and execution of the DeathScape laser maze event.",
-          "Handled laser maze design, testing, and deployment.",
+          "Led planning and execution of the DeathScape event.",
+          "Handled event setup, testing, and deployment.",
         ],
       },
       {
@@ -178,7 +178,6 @@ function Experience() {
         </motion.h2>
 
         <div className="relative">
-          {/* Center vertical line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-28">
@@ -192,12 +191,10 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
                     <div className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950" />
                   </div>
 
-                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +202,6 @@ function Experience() {
                     transition={{ duration: 0.6 }}
                     className="w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
                   >
-                    {/* Date pill */}
                     <div className="flex justify-end mb-4">
                       <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium">
                         {exp.period}
@@ -252,4 +248,5 @@ function Experience() {
 }
 
 export default Experience;
+
 
