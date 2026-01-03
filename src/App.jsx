@@ -13,40 +13,79 @@ function App() {
         {/* ================= HERO SECTION ================= */}
         <section
           id="home"
-          className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 overflow-hidden"
+          className="relative min-h-screen flex items-center overflow-hidden"
         >
-          {/* Background Glow */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 bg-indigo-500/20 blur-[120px] rounded-full" />
-            <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-cyan-400/10 blur-[100px] rounded-full" />
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/40 to-slate-950 -z-10" />
+
+          {/* Abstract wave background */}
+          <div className="absolute right-0 top-0 h-full w-[60%] opacity-40 -z-10">
+            <svg
+              viewBox="0 0 800 800"
+              className="w-full h-full"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" stroke="rgba(139,92,246,0.35)" strokeWidth="1">
+                {[...Array(18)].map((_, i) => (
+                  <path
+                    key={i}
+                    d={`M0 ${40 * i} C 200 ${20 * i}, 400 ${60 * i}, 800 ${40 * i}`}
+                  />
+                ))}
+              </g>
+            </svg>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-            Amaan’s Portfolio 🚀
-          </h1>
+          {/* Content */}
+          <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            {/* Left content */}
+            <div className="flex items-start gap-6">
+              {/* Vertical accent */}
+              <div className="flex flex-col items-center pt-2">
+                <div className="w-3 h-3 rounded-full bg-violet-500 mb-2" />
+                <div className="w-[2px] h-32 bg-violet-500/60" />
+              </div>
 
-          <p className="text-lg md:text-xl text-gray-400 mb-10">
-            CSE Student · AI · Game Dev · Web
-          </p>
+              <div>
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                  Hi, I&apos;m{" "}
+                  <span className="text-violet-500">Amaan</span>
+                </h1>
 
-          <div className="flex gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition hover:scale-[1.02]"
-            >
-              View Projects
-            </a>
+                <p className="mt-4 text-xl text-gray-300 max-w-xl">
+                  I build modern user interfaces, intelligent systems, and
+                  interactive experiences.
+                </p>
 
-            <a
-              href="#contact"
-              className="px-6 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.02]"
-            >
-              Contact Me
-            </a>
+                <p className="mt-2 text-gray-400">
+                  CSE Student · AI · Game Dev · Web
+                </p>
+
+                <div className="mt-8 flex gap-4">
+                  <a
+                    href="#projects"
+                    className="px-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg font-semibold transition hover:scale-[1.03]"
+                  >
+                    View Projects
+                  </a>
+
+                  <a
+                    href="#contact"
+                    className="px-6 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.03]"
+                  >
+                    Contact Me
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right empty space (keeps composition clean like reference) */}
+            <div />
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 flex flex-col items-center text-gray-400 text-sm animate-bounce">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-400 text-sm animate-bounce">
             <span>Scroll</span>
             <span className="text-xl">↓</span>
           </div>
