@@ -1,84 +1,95 @@
 import { motion } from "framer-motion";
 
-const experienceTimeline = [
+const experiences = [
   {
-    year: "2025",
-    items: [
-      {
-        fest: "Phase Shift",
-        org: "BMSCE",
-        event: "DeathScape 2.0",
-        role: "Sponsorship Coordinator",
-        period: "Apr 2025 – May 2025",
-        highlight: false,
-        logo: "/experience/phaseshift.png",
-        points: [
-          "Handled sponsor outreach and negotiations.",
-          "Managed sponsor branding and deliverables.",
-        ],
-      },
-      {
-        fest: "UTSAV",
-        org: "BMSCE",
-        event: "DeathScape 2.0",
-        role: "Club Event Organizer",
-        period: "Apr 2025 – May 2025",
-        highlight: true,
-        logo: "/experience/utsav.png",
-        points: [
-          "Organized and executed DeathScape 2.0 during UTSAV.",
-          "Managed team coordination and on-site execution.",
-        ],
-      },
+    title: "Sponsorship Coordinator",
+    fest: "Phase Shift",
+    event: "DeathScape 2.0",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "Apr 2025 – May 2025",
+    side: "left",
+    points: [
+      "Handled sponsor outreach and negotiations.",
+      "Managed sponsor branding and deliverables.",
     ],
   },
   {
-    year: "2024",
-    items: [
-      {
-        fest: "UTSAV",
-        org: "BMSCE",
-        event: "Cultural Fest",
-        role: "Student Volunteer",
-        period: "May 2024",
-        highlight: false,
-        logo: "/experience/utsav.png",
-        points: [
-          "Volunteered during UTSAV cultural fest.",
-          "Assisted with coordination and event operations.",
-        ],
-      },
-      {
-        fest: "Phase Shift",
-        org: "BMSCE",
-        event: "DeathScape (Laser Maze)",
-        role: "Event Organizer",
-        period: "Oct 2024 – Dec 2024",
-        highlight: true,
-        logo: "/experience/phaseshift.png",
-        points: [
-          "Led planning and execution of the DeathScape event.",
-          "Handled laser maze design, testing, and final deployment.",
-        ],
-      },
+    title: "Club Event Organizer",
+    fest: "UTSAV",
+    event: "DeathScape 2.0",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "Apr 2025 – May 2025",
+    side: "right",
+    points: [
+      "Organized and executed DeathScape 2.0 during UTSAV.",
+      "Managed team coordination and on-site execution.",
     ],
   },
   {
-    year: "2023",
-    items: [
-      {
-        fest: "Phase Shift",
-        org: "BMSCE",
-        event: "Laser Tag Event",
-        role: "Event Volunteer",
-        period: "Nov 2023 – Dec 2023",
-        highlight: false,
-        logo: "/experience/phaseshift.png",
-        points: [
-          "Assisted in on-ground execution and participant coordination.",
-          "Supported the core team during peak event hours.",
-        ],
-      },
+    title: "Event Organizer",
+    fest: "Phase Shift",
+    event: "DeathScape (Laser Maze)",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "Oct 2024 – Dec 2024",
+    side: "left",
+    points: [
+      "Led planning and execution of the DeathScape event.",
+      "Handled laser maze design, testing, and final deployment.",
+    ],
+  },
+  {
+    title: "Event Coordinator",
+    fest: "Phase Shift",
+    event: "DeathScape",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "Nov 2024 – Dec 2024",
+    side: "right",
+    points: [
+      "Coordinated teams for smooth event flow.",
+      "Managed logistics and issue resolution during the fest.",
+    ],
+  },
+  {
+    title: "Student Volunteer",
+    fest: "UTSAV",
+    event: "Cultural Fest",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "May 2024",
+    side: "left",
+    points: [
+      "Volunteered during UTSAV cultural fest.",
+      "Assisted with coordination and event operations.",
+    ],
+  },
+  {
+    title: "Event Volunteer",
+    fest: "Phase Shift",
+    event: "Laser Tag Event",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "Nov 2023 – Dec 2023",
+    side: "right",
+    points: [
+      "Assisted in on-ground execution and participant coordination.",
+      "Supported the core team during peak event hours.",
+    ],
+  },
+  {
+    title: "Member",
+    fest: "Rotaract Club",
+    event: "Social Service Activities",
+    org: "BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    period: "Nov 2023 – May 2024",
+    side: "left",
+    points: [
+      "Participated in social service initiatives.",
+      "Contributed to volunteering and community-driven activities.",
     ],
   },
 ];
@@ -93,94 +104,72 @@ function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-20"
+          className="text-3xl md:text-4xl font-bold text-center mb-24"
         >
           Experience Timeline
         </motion.h2>
 
         {/* Timeline */}
-        <div className="relative pl-24">
+        <div className="relative">
 
-          {/* Continuous vertical line */}
-          <div className="absolute left-12 top-0 bottom-0 w-[2px] bg-slate-800" />
+          {/* Center vertical line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
-          <div className="space-y-28">
-            {experienceTimeline.map((yearBlock, i) => (
-              <div key={i} className="relative">
+          <div className="space-y-24">
+            {experiences.map((exp, i) => {
+              const isLeft = exp.side === "left";
 
-                {/* YEAR (shifted up & left — no overlap) */}
+              return (
                 <div
-                  className="
-                    absolute
-                    left-12
-                    -translate-x-full
-                    pr-4
-                    -top-6
-                    text-indigo-400
-                    font-semibold
-                    text-sm
-                  "
+                  key={i}
+                  className={`relative flex ${
+                    isLeft ? "justify-start pr-10" : "justify-end pl-10"
+                  }`}
                 >
-                  {yearBlock.year}
-                </div>
+                  {/* Timeline dot */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
+                    <div className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950" />
+                  </div>
 
-                <div className="space-y-12 mt-10">
-                  {yearBlock.items.map((item, j) => (
-                    <div key={j} className="relative flex gap-8">
+                  {/* Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full md:w-[45%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
+                  >
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="text-lg font-semibold text-white">
+                        {exp.title}
+                      </h3>
 
-                      {/* Logo on timeline */}
-                      <div className="relative z-10">
-                        <img
-                          src={item.logo}
-                          alt={item.fest}
-                          className={`w-12 h-12 rounded-full bg-slate-900 border
-                          ${item.highlight
-                            ? "border-indigo-400"
-                            : "border-slate-700"
-                          } object-cover`}
-                        />
-                      </div>
-
-                      {/* Card */}
-                      <div
-                        className={`flex-1 rounded-xl p-5 border
-                        ${item.highlight
-                          ? "border-indigo-500/40 bg-slate-900"
-                          : "border-slate-800 bg-slate-900"
-                        }`}
-                      >
-                        <div className="flex justify-between items-start mb-2">
-                          <div>
-                            <h4 className="font-semibold text-white">
-                              {item.role}
-                            </h4>
-                            <p className="text-sm text-gray-400">
-                              <span className="text-indigo-400">
-                                {item.fest}
-                              </span>{" "}
-                              · {item.event} · {item.org}
-                            </p>
-                          </div>
-
-                          {/* Date — clean & aligned */}
-                          <span className="text-xs text-gray-400 mt-1 whitespace-nowrap">
-                            {item.period}
-                          </span>
-                        </div>
-
-                        <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
-                          {item.points.map((p, k) => (
-                            <li key={k}>{p}</li>
-                          ))}
-                        </ul>
-                      </div>
-
+                      {/* Highlighted date pill */}
+                      <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium whitespace-nowrap">
+                        {exp.period}
+                      </span>
                     </div>
-                  ))}
-                </div>
 
-              </div>
-            ))}
+                    <p className="text-sm text-gray-400 mb-3">
+                      <span className="text-sky-400 font-medium">
+                        {exp.fest}
+                      </span>{" "}
+                      · {exp.event} · {exp.org}
+                    </p>
+
+                    <p className="text-xs text-gray-500 mb-3">
+                      {exp.location}
+                    </p>
+
+                    <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
+                      {exp.points.map((p, j) => (
+                        <li key={j}>{p}</li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
 
         </div>
