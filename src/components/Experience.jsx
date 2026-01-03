@@ -19,7 +19,7 @@ const experiences = [
       },
       {
         title: "Sponsorship Coordinator",
-        fest: "Phase Shift",
+        fest: "UTSAV", // ✅ FIXED HERE
         event: "DeathScape 2.0",
         org: "BMSCE",
         points: [
@@ -122,6 +122,7 @@ function Experience() {
     <section id="experience" className="py-32 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
 
+        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +138,7 @@ function Experience() {
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-28">
-            {experiences.map((exp, i) => {
+            {experiences.map((exp) => {
               const isLeft = exp.side === "left";
 
               return (
@@ -160,7 +161,7 @@ function Experience() {
                     transition={{ duration: 0.6 }}
                     className="w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
                   >
-                    {/* Date */}
+                    {/* Date pill */}
                     <div className="flex justify-end mb-4">
                       <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium">
                         {exp.period}
