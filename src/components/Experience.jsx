@@ -178,11 +178,11 @@ function Experience() {
         </motion.h2>
 
         <div className="relative">
-          {/* Center line */}
+          {/* Center vertical line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-28">
-            {experiences.map((exp) => {
+            {[...experiences].reverse().map((exp) => {
               const isLeft = exp.side === "left";
 
               return (
@@ -252,3 +252,4 @@ function Experience() {
 }
 
 export default Experience;
+
