@@ -20,7 +20,6 @@ function Navbar() {
     );
 
     sections.forEach((section) => observer.observe(section));
-
     return () => observer.disconnect();
   }, []);
 
@@ -32,11 +31,16 @@ function Navbar() {
   ];
 
   return (
-    <nav className="w-full bg-slate-950 border-b border-slate-800 fixed top-0 z-50">
+    <nav className="fixed top-0 w-full z-50
+      bg-slate-950/60 backdrop-blur-xl
+      border-b border-white/10">
+
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <h1 className="text-xl font-bold text-white">Amaan</h1>
+        <h1 className="text-xl font-bold text-white">
+          Amaan
+        </h1>
 
         {/* Links */}
         <div className="flex gap-8">
@@ -48,7 +52,7 @@ function Navbar() {
                 ${
                   active === link.id
                     ? "text-white"
-                    : "text-gray-400 hover:text-white"
+                    : "text-gray-300 hover:text-white"
                 }
                 after:content-[''] after:absolute after:left-0 after:-bottom-1
                 after:h-[2px] after:bg-violet-500 after:transition-all after:duration-300
