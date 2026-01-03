@@ -1,19 +1,19 @@
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
-import { motion } from "framer-motion";
+import Experience from "./components/Experience";
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-gray-200">
+    <div className="min-h-screen bg-slate-950 text-gray-200 flex flex-col">
       <Navbar />
 
       {/* Spacing fix for fixed navbar */}
-      <main className="pt-24">
+      <main className="pt-24 flex-grow">
 
         {/* ================= HERO SECTION ================= */}
         <section
           id="home"
-          className="relative flex flex-col items-center justify-center h-screen text-center px-4 overflow-hidden"
+          className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 overflow-hidden"
         >
           {/* Background Glow */}
           <div className="absolute inset-0 -z-10">
@@ -21,55 +21,39 @@ function App() {
             <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-cyan-400/10 blur-[100px] rounded-full" />
           </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-extrabold mb-4"
-          >
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
             Amaan’s Portfolio 🚀
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-400 mb-10"
-          >
+          <p className="text-lg md:text-xl text-gray-400 mb-10">
             CSE Student · AI · Game Dev · Web
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex gap-4"
-          >
+          <div className="flex gap-4">
             <a
               href="#projects"
-              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition shadow-lg shadow-indigo-500/20"
+              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition hover:scale-[1.02]"
             >
               View Projects
             </a>
 
             <a
               href="#contact"
-              className="px-6 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition"
+              className="px-6 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.02]"
             >
               Contact Me
             </a>
-          </motion.div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 flex flex-col items-center text-gray-400 text-sm animate-bounce">
+            <span>Scroll</span>
+            <span className="text-xl">↓</span>
+          </div>
         </section>
 
         {/* ================= ABOUT SECTION ================= */}
-        <motion.section
-          id="about"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="py-32 px-6 bg-slate-950"
-        >
+        <section id="about" className="py-32 px-6 bg-slate-950">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
             {/* About Text */}
@@ -103,7 +87,7 @@ function App() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-indigo-500 transition"
+                  className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-indigo-500 transition hover:-translate-y-1"
                 >
                   <h3 className="font-semibold mb-2">
                     {item.title}
@@ -116,18 +100,17 @@ function App() {
             </div>
 
           </div>
-        </motion.section>
+        </section>
 
         {/* ================= PROJECTS SECTION ================= */}
         <Projects />
 
+        {/* ================= EXPERIENCE SECTION ================= */}
+        <Experience />
+
         {/* ================= CONTACT SECTION ================= */}
-        <motion.section
+        <section
           id="contact"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="py-32 px-6 bg-slate-900 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -140,16 +123,41 @@ function App() {
 
           <a
             href="mailto:your-email@example.com"
-            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition shadow-lg shadow-indigo-500/20"
+            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition hover:scale-[1.02]"
           >
             Send Email
           </a>
-        </motion.section>
+        </section>
 
       </main>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="border-t border-slate-800 py-6 text-center text-sm text-gray-400">
+        <p>
+          © {new Date().getFullYear()} Amaan · Built with React & Tailwind CSS
+        </p>
+
+        <div className="mt-2 flex justify-center gap-6">
+          <a
+            href="https://github.com/Amaan5705"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="mailto:your-email@example.com"
+            className="hover:text-white transition"
+          >
+            Email
+          </a>
+        </div>
+      </footer>
+
     </div>
   );
 }
 
 export default App;
-
