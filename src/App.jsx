@@ -4,37 +4,48 @@ import Experience from "./components/Experience";
 
 function App() {
   return (
-    <div className="min-h-screen text-gray-200">
+    <div className="min-h-screen bg-[#05070f] text-gray-200">
       <Navbar />
 
+      {/* Offset for fixed navbar */}
       <main className="pt-24">
 
-        {/* ================= HERO (DEBUG BACKGROUND) ================= */}
+        {/* ================= HERO SECTION ================= */}
         <section
           id="home"
-          className="
-            relative min-h-screen flex items-center
-            bg-[repeating-linear-gradient(
-              135deg,
-              rgba(168,85,247,0.35),
-              rgba(168,85,247,0.35) 2px,
-              #05070f 2px,
-              #05070f 24px
-            )]
-          "
+          className="relative min-h-screen flex items-center overflow-hidden bg-[#05070f]"
         >
-          {/* Content */}
+          {/* WAVE BACKGROUND */}
+          <div className="absolute inset-0 -z-10">
+            <div
+              className="absolute inset-0 opacity-40"
+              style={{
+                backgroundImage: `
+                  repeating-radial-gradient(
+                    circle at 80% 40%,
+                    rgba(168,85,247,0.35),
+                    rgba(168,85,247,0.35) 1px,
+                    transparent 1px,
+                    transparent 22px
+                  )
+                `,
+              }}
+            />
+          </div>
+
+          {/* CONTENT */}
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex gap-6 max-w-3xl">
 
-              {/* Vertical accent */}
+              {/* Vertical Accent Line */}
               <div className="flex flex-col items-center pt-3">
                 <div className="w-3 h-3 rounded-full bg-violet-500 mb-2" />
                 <div className="w-[2px] h-40 bg-violet-500/80" />
               </div>
 
+              {/* Text */}
               <div>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white">
                   Hi, I&apos;m{" "}
                   <span className="text-violet-500">Amaan</span>
                 </h1>
@@ -44,7 +55,7 @@ function App() {
                   and web applications
                 </p>
 
-                <p className="mt-4 text-gray-300">
+                <p className="mt-4 text-gray-400">
                   CSE Student · AI · Game Dev · Web
                 </p>
 
@@ -58,7 +69,7 @@ function App() {
 
                   <a
                     href="#contact"
-                    className="px-7 py-3 border border-gray-400 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.05]"
+                    className="px-7 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.05]"
                   >
                     Contact Me
                   </a>
@@ -66,10 +77,16 @@ function App() {
               </div>
             </div>
           </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 text-sm animate-bounce">
+            <span>Scroll</span>
+            <div className="text-xl">↓</div>
+          </div>
         </section>
 
         {/* ================= ABOUT ================= */}
-        <section id="about" className="py-32 px-6 bg-slate-950">
+        <section id="about" className="py-32 px-6 bg-[#05070f]">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               About Me
@@ -81,20 +98,28 @@ function App() {
           </div>
         </section>
 
+        {/* ================= PROJECTS ================= */}
         <Projects />
+
+        {/* ================= EXPERIENCE ================= */}
         <Experience />
 
         {/* ================= CONTACT ================= */}
-        <section id="contact" className="py-32 px-6 bg-slate-900 text-center">
+        <section
+          id="contact"
+          className="py-32 px-6 bg-slate-900 text-center"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Contact Me
           </h2>
+
           <p className="text-gray-400 mb-8">
             Let’s connect and build something awesome 🚀
           </p>
+
           <a
             href="mailto:your-email@example.com"
-            className="px-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg font-semibold transition"
+            className="inline-block px-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg font-semibold transition"
           >
             Send Email
           </a>
@@ -102,11 +127,13 @@ function App() {
 
       </main>
 
+      {/* ================= FOOTER ================= */}
       <footer className="border-t border-slate-800 py-6 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Amaan
+        © {new Date().getFullYear()} Amaan · Built with React & Tailwind CSS
       </footer>
     </div>
   );
 }
 
 export default App;
+

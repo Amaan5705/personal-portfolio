@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: #05070f; /* 🔥 THIS WAS MISSING */
+  color: #e5e7eb;
 }
 
-/* Fix anchor offset for fixed navbar */
-section {
-  scroll-margin-top: 6rem;
-}
 
 
 
