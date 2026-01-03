@@ -107,6 +107,7 @@ function Experience() {
     <section id="experience" className="py-32 px-6 bg-slate-950">
       <div className="max-w-5xl mx-auto">
 
+        {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,8 +117,9 @@ function Experience() {
           Experience Timeline
         </motion.h2>
 
+        {/* Timeline */}
         <div className="space-y-20">
-          {experienceTimeline.map((yearBlock, i) => (
+          {[...experienceTimeline].reverse().map((yearBlock, i) => (
             <div key={i}>
               {/* Year */}
               <h3 className="text-xl font-semibold text-indigo-400 mb-8">
