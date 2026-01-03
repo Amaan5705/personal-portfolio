@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 const experiences = [
-  // =================== PHASE SHIFT 2023 ===================
   {
     eventKey: "phaseshift-2023",
     period: "Nov 2023 – Dec 2023",
@@ -11,7 +10,7 @@ const experiences = [
       {
         title: "Event Volunteer",
         fest: "Phase Shift",
-        event: "Zapocalypse (Laser-Tag Event)", // ✅ FIXED
+        event: "Zapocalypse (Laser-Tag Event)",
         org: "BMSCE",
         points: [
           "Assisted in on-ground execution and participant coordination.",
@@ -20,8 +19,6 @@ const experiences = [
       },
     ],
   },
-
-  // =================== UTSAV 2024 ===================
   {
     eventKey: "utsav-2024",
     period: "May 2024",
@@ -40,8 +37,6 @@ const experiences = [
       },
     ],
   },
-
-  // =================== PHASE SHIFT 2024 ===================
   {
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
@@ -51,7 +46,7 @@ const experiences = [
       {
         title: "Event Organizer",
         fest: "Phase Shift",
-        event: "DeathScape", // ✅ LASER MAZE REMOVED
+        event: "DeathScape",
         org: "BMSCE",
         points: [
           "Led planning and execution of the DeathScape event.",
@@ -70,8 +65,6 @@ const experiences = [
       },
     ],
   },
-
-  // =================== VTVO 2025 ===================
   {
     eventKey: "vtvo-2025",
     period: "Mar 2025 – Jun 2025",
@@ -90,8 +83,6 @@ const experiences = [
       },
     ],
   },
-
-  // =================== DEATHSCAPE 2.0 – 2025 ===================
   {
     eventKey: "deathscape-2-2025",
     period: "Apr 2025 – May 2025",
@@ -120,8 +111,6 @@ const experiences = [
       },
     ],
   },
-
-  // =================== DEATHSCAPE 3.0 – 2025 (LATEST) ===================
   {
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
@@ -195,12 +184,23 @@ function Experience() {
                     <div className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950" />
                   </div>
 
+                  {/* EXPERIENCE CARD WITH HOVER */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.02,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 20,
+                    }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
+                    className="w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6
+                               hover:border-emerald-500/60 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]
+                               transition-colors"
                   >
                     <div className="flex justify-end mb-4">
                       <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium">
