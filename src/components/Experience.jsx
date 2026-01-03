@@ -1,85 +1,172 @@
 import { motion } from "framer-motion";
 
-const experiences = [
+const experienceData = [
   {
-    role: "Event Organizer & Coordinator",
-    org: "BMS College of Engineering",
-    period: "2023 – Present",
-    points: [
-      "Planned and executed large-scale college events with 1,000+ attendees.",
-      "Coordinated cross-functional teams including logistics, marketing, and operations.",
-      "Ensured smooth execution under tight deadlines and high-pressure situations."
+    org: "BMSCE Phase Shift",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Event Organizer",
+        period: "Oct 2024 – Dec 2024",
+        highlight: true,
+        points: [
+          "Led end-to-end planning and execution of the DeathScape event.",
+          "Managed stage design, laser maze setup, testing, and on-ground execution.",
+        ],
+        images: ["deathscape-event.jpg", "stage-setup.jpg"],
+      },
+      {
+        title: "Event Coordinator",
+        period: "Nov 2024 – Dec 2024",
+        highlight: false,
+        points: [
+          "Coordinated multiple teams to ensure smooth event flow.",
+          "Handled logistics, scheduling, and issue resolution during the event.",
+        ],
+        images: ["certificate.jpg"],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        period: "Apr 2025 – May 2025",
+        highlight: false,
+        points: [
+          "Handled sponsor outreach and negotiations.",
+          "Ensured sponsor branding and deliverables were fulfilled.",
+        ],
+        images: ["sponsor-poster.jpg"],
+      },
+      {
+        title: "Event Volunteer",
+        period: "Nov 2023 – Dec 2023",
+        highlight: false,
+        points: [
+          "Supported event execution and participant management.",
+          "Assisted core team during peak event hours.",
+        ],
+        images: [],
+      },
     ],
   },
   {
-    role: "Sponsorship & Fundraising Coordinator",
-    org: "Tech & Cultural Fests (UTSAV, Phase Shift)",
-    period: "2023 – 2024",
-    points: [
-      "Approached and negotiated with sponsors for financial and in-kind support.",
-      "Secured sponsorships by presenting value-driven proposals to brands.",
-      "Managed sponsor relations and ensured promised deliverables were met."
+    org: "BMSCE UTSAV",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Club Event Organizer",
+        period: "Apr 2025 – May 2025",
+        highlight: true,
+        points: [
+          "Organized and executed DeathScape 2.0 during UTSAV.",
+          "Managed team coordination and on-site operations.",
+        ],
+        images: ["deathscape-2.jpg"],
+      },
+      {
+        title: "Student Volunteer",
+        period: "May 2024",
+        highlight: false,
+        points: [
+          "Volunteered in cultural fest operations.",
+          "Assisted with coordination and crowd management.",
+        ],
+        images: ["utsav-certificate.jpg"],
+      },
     ],
   },
   {
-    role: "Volunteer & Core Team Member",
-    org: "Rotaract Club – BMSCE",
-    period: "2022 – 2023",
-    points: [
-      "Actively contributed to social initiatives and community service projects.",
-      "Worked in teams to organize awareness drives and fundraising activities.",
-      "Developed leadership, communication, and teamwork skills."
+    org: "Rotaract Club of BMSCE",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Member",
+        period: "Nov 2023 – May 2024",
+        highlight: false,
+        points: [
+          "Participated in social service initiatives.",
+          "Contributed to volunteering and community activities.",
+        ],
+        images: [],
+      },
     ],
   },
 ];
 
 function Experience() {
   return (
-    <section
-      id="experience"
-      className="py-24 px-6 max-w-5xl mx-auto"
-    >
-      {/* Section Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
-      >
-        Experience & Activities
-      </motion.h2>
+    <section id="experience" className="py-32 px-6 bg-slate-950">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="space-y-10">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition"
-          >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-              <div>
-                <h3 className="text-xl font-semibold text-red-500">
-                  {exp.role}
-                </h3>
-                <p className="text-gray-400">{exp.org}</p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold text-center mb-20"
+        >
+          Experience
+        </motion.h2>
+
+        <div className="space-y-20">
+          {experienceData.map((org, i) => (
+            <div key={i} className="border-l-2 border-slate-800 pl-6">
+              <h3 className="text-xl font-semibold text-indigo-400">
+                {org.org}
+              </h3>
+              <p className="text-sm text-gray-400 mb-8">
+                {org.location}
+              </p>
+
+              <div className="space-y-10">
+                {org.roles.map((role, j) => (
+                  <div key={j} className="relative pl-6">
+                    {/* Timeline Dot */}
+                    <span
+                      className={`absolute -left-[14px] top-2 w-3 h-3 rounded-full 
+                      ${role.highlight ? "bg-indigo-400" : "bg-slate-400"}
+                      border-4 border-slate-950`}
+                    />
+
+                    <div
+                      className={`rounded-xl p-5 border 
+                      ${role.highlight
+                        ? "bg-slate-900 border-indigo-500/40"
+                        : "bg-slate-900 border-slate-800"
+                      }`}
+                    >
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold text-white">
+                          {role.title}
+                        </h4>
+                        <span className="text-xs text-gray-400">
+                          {role.period}
+                        </span>
+                      </div>
+
+                      <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
+                        {role.points.map((p, k) => (
+                          <li key={k}>{p}</li>
+                        ))}
+                      </ul>
+
+                      {role.images.length > 0 && (
+                        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+                          {role.images.map((img, k) => (
+                            <img
+                              key={k}
+                              src={`/experience/${img}`}
+                              alt=""
+                              className="rounded-lg border border-slate-700 object-cover"
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              <span className="text-sm text-gray-500 mt-2 md:mt-0">
-                {exp.period}
-              </span>
             </div>
+          ))}
+        </div>
 
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
-              {exp.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
       </div>
     </section>
   );
