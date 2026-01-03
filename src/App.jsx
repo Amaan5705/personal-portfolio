@@ -4,35 +4,27 @@ import Experience from "./components/Experience";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#05070f] text-gray-200">
+    <div className="min-h-screen text-gray-200">
       <Navbar />
 
       <main className="pt-24">
 
-        {/* ================= HERO ================= */}
+        {/* ================= HERO (DEBUG BACKGROUND) ================= */}
         <section
           id="home"
-          className="relative min-h-screen flex items-center overflow-hidden"
+          className="
+            relative min-h-screen flex items-center
+            bg-[repeating-linear-gradient(
+              135deg,
+              rgba(168,85,247,0.35),
+              rgba(168,85,247,0.35) 2px,
+              #05070f 2px,
+              #05070f 24px
+            )]
+          "
         >
-          {/* WAVE BACKGROUND (CSS – GUARANTEED) */}
-          <div
-            className="absolute inset-0 -z-10"
-            style={{
-              backgroundColor: "#05070f",
-              backgroundImage: `
-                repeating-radial-gradient(
-                  circle at 80% 50%,
-                  rgba(168,85,247,0.35) 0px,
-                  rgba(168,85,247,0.35) 1px,
-                  transparent 1px,
-                  transparent 18px
-                )
-              `,
-            }}
-          />
-
-          {/* CONTENT */}
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
+          {/* Content */}
+          <div className="max-w-6xl mx-auto px-6">
             <div className="flex gap-6 max-w-3xl">
 
               {/* Vertical accent */}
@@ -52,7 +44,7 @@ function App() {
                   and web applications
                 </p>
 
-                <p className="mt-4 text-gray-400">
+                <p className="mt-4 text-gray-300">
                   CSE Student · AI · Game Dev · Web
                 </p>
 
@@ -66,7 +58,7 @@ function App() {
 
                   <a
                     href="#contact"
-                    className="px-7 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.05]"
+                    className="px-7 py-3 border border-gray-400 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.05]"
                   >
                     Contact Me
                   </a>
@@ -74,16 +66,10 @@ function App() {
               </div>
             </div>
           </div>
-
-          {/* Scroll */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 text-sm animate-bounce">
-            Scroll
-            <div className="text-xl">↓</div>
-          </div>
         </section>
 
-        {/* ABOUT */}
-        <section id="about" className="py-32 px-6">
+        {/* ================= ABOUT ================= */}
+        <section id="about" className="py-32 px-6 bg-slate-950">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               About Me
@@ -98,7 +84,7 @@ function App() {
         <Projects />
         <Experience />
 
-        {/* CONTACT */}
+        {/* ================= CONTACT ================= */}
         <section id="contact" className="py-32 px-6 bg-slate-900 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Contact Me
