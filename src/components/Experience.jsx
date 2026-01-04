@@ -10,8 +10,6 @@ const logoMap = {
   "deathscape-2-2025": "/experience/utsav.png",
 
   "vtvo-2025": "/experience/vtvo.png",
-
-  // Rotaract
   "rotract-2024": "/experience/rotract.png",
 };
 
@@ -20,7 +18,6 @@ const experiences = [
     eventKey: "phaseshift-2023",
     period: "Nov 2023 – Dec 2023",
     location: "Bengaluru, Karnataka, India",
-    side: "right",
     roles: [
       {
         title: "Event Volunteer",
@@ -38,7 +35,6 @@ const experiences = [
     eventKey: "rotract-2024",
     period: "Nov 2023 – May 2024",
     location: "Bengaluru, Karnataka, India",
-    side: "left",
     roles: [
       {
         title: "Member",
@@ -56,7 +52,6 @@ const experiences = [
     eventKey: "utsav-2024",
     period: "May 2024",
     location: "Bengaluru, Karnataka, India",
-    side: "left",
     roles: [
       {
         title: "Student Volunteer",
@@ -74,7 +69,6 @@ const experiences = [
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
     location: "Bengaluru, Karnataka, India",
-    side: "right",
     roles: [
       {
         title: "Event Organizer",
@@ -102,7 +96,6 @@ const experiences = [
     eventKey: "vtvo-2025",
     period: "Mar 2025 – Jun 2025",
     location: "Bengaluru, Karnataka, India",
-    side: "left",
     roles: [
       {
         title: "Member",
@@ -120,7 +113,6 @@ const experiences = [
     eventKey: "deathscape-2-2025",
     period: "Apr 2025 – May 2025",
     location: "Bengaluru, Karnataka, India",
-    side: "right",
     roles: [
       {
         title: "Club Event Organizer",
@@ -148,7 +140,6 @@ const experiences = [
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
     location: "Bengaluru, Karnataka, India",
-    side: "left",
     roles: [
       {
         title: "Club Event Organizer",
@@ -200,11 +191,12 @@ function Experience() {
         </motion.h2>
 
         <div className="relative">
+          {/* Timeline line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-16">
-            {[...experiences].reverse().map((exp) => {
-              const isLeft = exp.side === "left";
+            {[...experiences].reverse().map((exp, index) => {
+              const isLeft = index % 2 === 0;
               const logo = logoMap[exp.eventKey];
 
               return (
