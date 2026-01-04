@@ -65,7 +65,11 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["400+ participants", "Event execution"],
+        impact: [
+          "400+ participants",
+          "Event execution",
+          "Team leadership", // ✅ NEW TAG
+        ],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -219,7 +223,6 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -230,7 +233,6 @@ function Experience() {
                     />
                   </div>
 
-                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -241,7 +243,6 @@ function Experience() {
                                hover:border-emerald-500/60
                                hover:shadow-[0_25px_45px_-15px_rgba(16,185,129,0.35)]"
                   >
-                    {/* Logo */}
                     {logo && (
                       <motion.div
                         animate={{ y: [0, -6, 0] }}
@@ -270,7 +271,6 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* Tags */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
