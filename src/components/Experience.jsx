@@ -11,7 +11,7 @@ const logoMap = {
 
   "vtvo-2025": "/experience/vtvo.png",
 
-  // ✅ Rotaract
+  // Rotaract
   "rotract-2024": "/experience/rotract.png",
 };
 
@@ -30,6 +30,24 @@ const experiences = [
         points: [
           "Assisted in on-ground execution and participant coordination.",
           "Supported the core team during peak event hours.",
+        ],
+      },
+    ],
+  },
+  {
+    eventKey: "rotract-2024",
+    period: "Nov 2023 – May 2024",
+    location: "Bengaluru, Karnataka, India",
+    side: "left",
+    roles: [
+      {
+        title: "Member",
+        fest: "Rotaract Club of BMSCE",
+        event: "Community & Club Activities",
+        org: "Rotaract",
+        points: [
+          "Participated in Rotaract-led community service initiatives.",
+          "Assisted in organizing and volunteering for club activities.",
         ],
       },
     ],
@@ -76,24 +94,6 @@ const experiences = [
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
-        ],
-      },
-    ],
-  },
-  {
-    eventKey: "rotract-2024",
-    period: "2024",
-    location: "Bengaluru, Karnataka, India",
-    side: "left",
-    roles: [
-      {
-        title: "Member",
-        fest: "Rotaract Club",
-        event: "Community & Club Activities",
-        org: "Rotaract",
-        points: [
-          "Participated in Rotaract-led community service initiatives.",
-          "Assisted in organizing and volunteering for club activities.",
         ],
       },
     ],
@@ -202,7 +202,7 @@ function Experience() {
         <div className="relative">
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
-          <div className="space-y-28">
+          <div className="space-y-16">
             {[...experiences].reverse().map((exp) => {
               const isLeft = exp.side === "left";
               const logo = logoMap[exp.eventKey];
@@ -210,16 +210,16 @@ function Experience() {
               return (
                 <div
                   key={exp.eventKey}
-                  className={`relative flex ${
+                  className={`relative flex items-start ${
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <div className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950" />
                   </div>
 
-                  {/* Experience card */}
+                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -288,3 +288,4 @@ function Experience() {
 }
 
 export default Experience;
+
