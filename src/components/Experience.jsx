@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 /* eventKey → logo path */
 const logoMap = {
   "phaseshift-2023": "/experience/phase-shift.png",
-  "phaseshift-fundraiser-2023": "/experience/phase-shift.png",
   "deathscape-2024": "/experience/phase-shift.png",
   "deathscape-3-2025": "/experience/phase-shift.png",
 
@@ -36,15 +35,6 @@ const experiences = [
           "Supported the core team during peak event hours.",
         ],
       },
-    ],
-  },
-
-  /* ✅ NEW ENTRY – Student Fundraiser */
-  {
-    eventKey: "phaseshift-fundraiser-2023",
-    period: "Nov 2023 – Dec 2023",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
       {
         title: "Student Fundraiser",
         fest: "Phase Shift",
@@ -170,68 +160,6 @@ const experiences = [
       },
     ],
   },
-
-  {
-    eventKey: "deathscape-2-2025",
-    period: "Apr 2025 – May 2025",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Club Event Organizer",
-        fest: "UTSAV",
-        event: "DeathScape 2.0",
-        org: "BMSCE",
-        impact: [
-          "400+ participants",
-          "Multi-team coordination",
-          "Smooth execution",
-        ],
-        points: [
-          "Organized and executed DeathScape 2.0 during UTSAV.",
-          "Managed team coordination and on-site execution.",
-        ],
-      },
-      {
-        title: "Sponsorship Coordinator",
-        fest: "UTSAV",
-        event: "DeathScape 2.0",
-        org: "BMSCE",
-        impact: [
-          "₹40k raised",
-          "Sponsor outreach",
-          "Brand partnerships",
-        ],
-        points: [
-          "Handled sponsor outreach and negotiations.",
-          "Managed sponsor branding and deliverables.",
-        ],
-      },
-    ],
-  },
-
-  {
-    eventKey: "deathscape-3-2025",
-    period: "Aug 2025 – Sep 2025",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Club Event Organizer",
-        fest: "Phase Shift",
-        event: "DeathScape 3.0",
-        org: "BMSCE",
-        impact: [
-          "450+ participants",
-          "Zero downtime",
-          "End-to-end ownership",
-        ],
-        points: [
-          "Led end-to-end planning and execution of DeathScape 3.0.",
-          "Supervised LED strip testing and final installations.",
-          "Managed on-ground operations during the event.",
-        ],
-      },
-    ],
-  },
 ];
 
 function Experience() {
@@ -262,6 +190,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
+                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -277,10 +206,10 @@ function Experience() {
                     />
                   </div>
 
+                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    whileHover={{ y: -6, scale: 1.02 }}
                     transition={{
                       type: "spring",
                       stiffness: 120,
@@ -310,16 +239,14 @@ function Experience() {
 
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
-                            <motion.span
+                            <span
                               key={i}
-                              whileHover={{ y: -2, scale: 1.06 }}
-                              transition={{ stiffness: 300, damping: 15 }}
-                              className="px-3 py-1 text-xs font-medium rounded-full
+                              className="px-3 py-1 text-xs rounded-full
                                          bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
                                          text-emerald-300 border border-emerald-400/30"
                             >
                               {tag}
-                            </motion.span>
+                            </span>
                           ))}
                         </div>
 
@@ -353,4 +280,3 @@ function Experience() {
 }
 
 export default Experience;
-
