@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-/* Logo mapping (served from /public/experience) */
 const logoMap = {
   "deathscape-3-2025": "/experience/phase-shift.png",
   "utsav-2025": "/experience/utsav.png",
@@ -10,7 +9,6 @@ const logoMap = {
   "phaseshift-2023": "/experience/phase-shift.png",
 };
 
-/* Timeline data — ORDER MATTERS (newest → oldest) */
 const experiences = [
   // ===================== 2025 =====================
   {
@@ -33,6 +31,34 @@ const experiences = [
           "Managed on-ground operations during the event.",
         ],
       },
+      {
+        title: "Student Fundraiser",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        impact: [
+          "Fund mobilisation",
+          "Student outreach",
+        ],
+        points: [
+          "Raised funds through student outreach and engagement.",
+          "Assisted in budgeting and financial planning.",
+        ],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        impact: [
+          "Sponsor acquisition",
+          "Brand placements",
+        ],
+        points: [
+          "Handled sponsor acquisition and negotiations.",
+          "Managed sponsor branding and on-ground visibility.",
+        ],
+      },
     ],
   },
 
@@ -45,10 +71,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: [
-          "400+ participants",
-          "Event execution",
-        ],
+        impact: ["400+ participants", "Event execution"],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -59,10 +82,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: [
-          "₹40k raised",
-          "Sponsor outreach",
-        ],
+        impact: ["₹40k raised", "Sponsor outreach"],
         points: [
           "Handled sponsor outreach and negotiations.",
           "Managed sponsor branding and deliverables.",
@@ -117,10 +137,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: [
-          "500+ participants",
-          "Team coordination",
-        ],
+        impact: ["500+ participants", "Team coordination"],
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
@@ -176,10 +193,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "Tech Fest Fundraising",
         org: "BMSCE",
-        impact: [
-          "Sponsor outreach",
-          "Budget coordination",
-        ],
+        impact: ["Sponsor outreach", "Budget coordination"],
         points: [
           "Assisted in fundraising through sponsor and student outreach.",
           "Supported budgeting and expense planning for Phase Shift events.",
@@ -198,10 +212,9 @@ function Experience() {
         </h2>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
-          <div className="space-y-20">
+          <div className="space-y-16">
             {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0;
               const logo = logoMap[exp.eventKey];
@@ -213,7 +226,6 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -224,7 +236,6 @@ function Experience() {
                     />
                   </div>
 
-                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -234,11 +245,7 @@ function Experience() {
                   >
                     {logo && (
                       <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700">
-                        <img
-                          src={logo}
-                          alt="logo"
-                          className="w-10 h-10 object-contain"
-                        />
+                        <img src={logo} className="w-10 h-10 object-contain" />
                       </div>
                     )}
 
@@ -254,7 +261,6 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* Hover-animated tags */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
@@ -266,11 +272,10 @@ function Experience() {
                                 damping: 15,
                               }}
                               className="px-3 py-1 text-xs font-medium rounded-full
-                                         bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                         text-emerald-300 border border-emerald-400/30
-                                         cursor-default
-                                         hover:border-cyan-400
-                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
+                                bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
+                                text-emerald-300 border border-emerald-400/30
+                                hover:border-cyan-400
+                                hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
                             </motion.span>
