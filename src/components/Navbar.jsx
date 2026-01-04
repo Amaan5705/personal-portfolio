@@ -31,10 +31,14 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50
-      bg-slate-950/60 backdrop-blur-xl
-      border-b border-white/10">
-
+    <nav
+      className="
+        fixed top-0 w-full z-50
+        bg-gradient-to-r from-[#0f172a]/70 via-[#020617]/70 to-[#0f172a]/70
+        backdrop-blur-xl
+        border-b border-indigo-500/20
+      "
+    >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
@@ -42,7 +46,7 @@ function Navbar() {
           Amaan
         </h1>
 
-        {/* Links */}
+        {/* Navigation Links */}
         <div className="flex gap-8">
           {links.map((link) => (
             <a
@@ -74,3 +78,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
