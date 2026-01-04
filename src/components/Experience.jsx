@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-/* Map eventKey → logo (served from public/) */
+/* eventKey → logo path (from public/experience) */
 const logoMap = {
   "phaseshift-2023": "/experience/phase-shift.png",
   "deathscape-2024": "/experience/phase-shift.png",
@@ -24,6 +24,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "Zapocalypse (Laser-Tag Event)",
         org: "BMSCE",
+        impact: ["On-ground execution", "Crowd coordination"],
         points: [
           "Assisted in on-ground execution and participant coordination.",
           "Supported the core team during peak event hours.",
@@ -41,6 +42,7 @@ const experiences = [
         fest: "Rotaract Club of BMSCE",
         event: "Community & Club Activities",
         org: "Rotaract",
+        impact: ["Community outreach", "Volunteer coordination"],
         points: [
           "Participated in Rotaract-led community service initiatives.",
           "Assisted in organizing and volunteering for club activities.",
@@ -58,6 +60,7 @@ const experiences = [
         fest: "UTSAV",
         event: "Cultural Fest",
         org: "BMSCE",
+        impact: ["Event operations", "Team support"],
         points: [
           "Volunteered during UTSAV cultural fest.",
           "Assisted with coordination and event operations.",
@@ -75,6 +78,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
+        impact: ["300+ participants", "End-to-end execution"],
         points: [
           "Led planning and execution of the DeathScape event.",
           "Handled event setup, testing, and deployment.",
@@ -85,6 +89,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
+        impact: ["Team coordination", "Live issue resolution"],
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
@@ -102,6 +107,7 @@ const experiences = [
         fest: "V The Volunteers (VTVO)",
         event: "Social Service Activities",
         org: "VTVO",
+        impact: ["Community service", "Social outreach"],
         points: [
           "Participated in social service and volunteering initiatives.",
           "Contributed to community-driven outreach programs.",
@@ -119,6 +125,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
+        impact: ["Multi-team coordination", "Smooth execution"],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -129,6 +136,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
+        impact: ["Sponsor outreach", "Brand partnerships"],
         points: [
           "Handled sponsor outreach and negotiations.",
           "Managed sponsor branding and deliverables.",
@@ -146,6 +154,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
+        impact: ["Large-scale execution", "Zero downtime"],
         points: [
           "Led end-to-end planning and execution of DeathScape 3.0.",
           "Supervised LED strip testing and final installations.",
@@ -157,6 +166,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
+        impact: ["₹50k+ raised", "Sponsor coordination"],
         points: [
           "Raised funds through student and sponsor outreach.",
           "Assisted in budgeting and expense coordination.",
@@ -167,6 +177,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
+        impact: ["Sponsorship acquisition", "Brand placements"],
         points: [
           "Handled sponsorship acquisition and negotiations.",
           "Managed sponsor branding and promotional placements.",
@@ -180,7 +191,6 @@ function Experience() {
   return (
     <section id="experience" className="py-32 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
-
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +201,7 @@ function Experience() {
         </motion.h2>
 
         <div className="relative">
-          {/* Timeline line */}
+          {/* timeline line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-16">
@@ -202,40 +212,67 @@ function Experience() {
               return (
                 <div
                   key={exp.eventKey}
-                  className={`relative flex items-start ${
+                  className={`relative flex ${
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
+                  {/* dot pulse */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
-                    <div className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950" />
+                    <motion.div
+                      initial={{ scale: 0.6, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                        delay: index * 0.15,
+                      }}
+                      viewport={{ once: true }}
+                      className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950
+                                 shadow-[0_0_0_0_rgba(16,185,129,0.6)]
+                                 animate-pulse-once"
+                    />
                   </div>
 
-                  {/* Card */}
+                  {/* card */}
                   <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{
+                      opacity: 0,
+                      x: isLeft ? -80 : 80,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
                     whileHover={{ y: -6, scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 18,
+                      delay: index * 0.15,
+                    }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6
-                               hover:border-emerald-500/60 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]
-                               transition-colors"
+                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800
+                               rounded-2xl p-6 hover:border-emerald-500/60
+                               hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]"
                   >
-                    {/* Logo */}
+                    {/* logo */}
                     {logo && (
-                      <div className="absolute -top-6 left-6 bg-slate-950 rounded-xl p-2 border border-slate-700">
+                      <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950
+                                      border border-slate-700 transition-all duration-300
+                                      hover:border-emerald-400
+                                      hover:shadow-[0_0_20px_rgba(16,185,129,0.45)]">
                         <img
                           src={logo}
-                          alt="organization logo"
-                          className="w-10 h-10 object-contain"
+                          alt="logo"
+                          className="w-10 h-10 object-contain grayscale opacity-70
+                                     hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                         />
                       </div>
                     )}
 
-                    {/* Period */}
                     <div className="flex justify-end mb-4">
-                      <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium">
+                      <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400">
                         {exp.period}
                       </span>
                     </div>
@@ -246,15 +283,27 @@ function Experience() {
                           {role.title}
                         </h3>
 
+                        {/* impact tags */}
+                        {role.impact && (
+                          <div className="flex flex-wrap gap-2 my-2">
+                            {role.impact.map((tag, i) => (
+                              <span
+                                key={i}
+                                className="px-2 py-0.5 text-xs rounded-full
+                                           bg-emerald-500/10 text-emerald-400
+                                           border border-emerald-500/30"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
                         <p className="text-sm text-gray-400 mb-2">
                           <span className="text-sky-400 font-medium">
                             {role.fest}
                           </span>{" "}
                           · {role.event} · {role.org}
-                        </p>
-
-                        <p className="text-xs text-gray-500 mb-3">
-                          {exp.location}
                         </p>
 
                         <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
