@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import vtvoLogo from "../assets/experience/vtvo.png";
+import utsavLogo from "../assets/experience/utsav.png";
+import rotractLogo from "../assets/experience/rotract.png";
+import phaseLogo from "../assets/experience/phase-shift.png";
+
 
 const experiences = [
   {
