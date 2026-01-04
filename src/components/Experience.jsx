@@ -2,18 +2,179 @@ import { motion } from "framer-motion";
 
 /* eventKey → logo path */
 const logoMap = {
-  "phaseshift-2023": "/experience/phase-shift.png",
-  "deathscape-2024": "/experience/phase-shift.png",
-  "deathscape-3-2025": "/experience/phase-shift.png",
-
-  "utsav-2024": "/experience/utsav.png",
-  "deathscape-2-2025": "/experience/utsav.png",
-
   "vtvo-2025": "/experience/vtvo.png",
+  "deathscape-3-2025": "/experience/phase-shift.png",
+  "deathscape-2024": "/experience/phase-shift.png",
+  "utsav-2024": "/experience/utsav.png",
   "rotract-2024": "/experience/rotract.png",
+  "phaseshift-2023": "/experience/phase-shift.png",
 };
 
 const experiences = [
+  // ===================== 2025 =====================
+  {
+    eventKey: "vtvo-2025",
+    period: "Mar 2025 – Jun 2025",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Member",
+        fest: "V The Volunteers (VTVO)",
+        event: "Social Service Activities",
+        org: "VTVO",
+        impact: [
+          "Community service",
+          "Social outreach",
+          "Volunteer engagement",
+        ],
+        points: [
+          "Participated in social service and volunteering initiatives.",
+          "Contributed to community-driven outreach programs.",
+        ],
+      },
+    ],
+  },
+
+  {
+    eventKey: "deathscape-3-2025",
+    period: "Aug 2025 – Sep 2025",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Club Event Organizer",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        impact: [
+          "450+ participants",
+          "Zero downtime",
+          "End-to-end ownership",
+        ],
+        points: [
+          "Led end-to-end planning and execution of DeathScape 3.0.",
+          "Supervised LED strip testing and final installations.",
+          "Managed on-ground operations during the event.",
+        ],
+      },
+      {
+        title: "Student Fundraiser",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        impact: [
+          "Fundraising",
+          "Sponsor outreach",
+          "Budget coordination",
+        ],
+        points: [
+          "Raised funds through student and sponsor outreach.",
+          "Assisted in budgeting and expense coordination.",
+        ],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        fest: "Phase Shift",
+        event: "DeathScape 3.0",
+        org: "BMSCE",
+        impact: [
+          "Sponsorship acquisition",
+          "Brand placements",
+          "Partner management",
+        ],
+        points: [
+          "Handled sponsorship acquisition and negotiations.",
+          "Managed sponsor branding and promotional placements.",
+        ],
+      },
+    ],
+  },
+
+  // ===================== 2024 =====================
+  {
+    eventKey: "deathscape-2024",
+    period: "Oct 2024 – Dec 2024",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Event Organizer",
+        fest: "Phase Shift",
+        event: "DeathScape",
+        org: "BMSCE",
+        impact: [
+          "₹80k raised (Whatfix & Yucca)",
+          "Highest grossing event",
+          "Large-scale execution",
+        ],
+        points: [
+          "Led planning and execution of the DeathScape event.",
+          "Handled event setup, testing, and deployment.",
+        ],
+      },
+      {
+        title: "Event Coordinator",
+        fest: "Phase Shift",
+        event: "DeathScape",
+        org: "BMSCE",
+        impact: [
+          "500+ participants",
+          "Team coordination",
+          "Live issue resolution",
+        ],
+        points: [
+          "Coordinated teams for smooth event flow.",
+          "Managed logistics and issue resolution during the fest.",
+        ],
+      },
+    ],
+  },
+
+  {
+    eventKey: "utsav-2024",
+    period: "May 2024",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Student Volunteer",
+        fest: "UTSAV",
+        event: "Cultural Fest",
+        org: "BMSCE",
+        impact: [
+          "Event operations",
+          "Volunteer coordination",
+          "Team support",
+        ],
+        points: [
+          "Volunteered during UTSAV cultural fest.",
+          "Assisted with coordination and event operations.",
+        ],
+      },
+    ],
+  },
+
+  {
+    eventKey: "rotract-2024",
+    period: "Nov 2023 – May 2024",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Member",
+        fest: "Rotaract Club of BMSCE",
+        event: "Community & Club Activities",
+        org: "Rotaract",
+        impact: [
+          "Community outreach",
+          "Volunteer engagement",
+          "Social initiatives",
+        ],
+        points: [
+          "Participated in Rotaract-led community service initiatives.",
+          "Assisted in organizing and volunteering for club activities.",
+        ],
+      },
+    ],
+  },
+
+  // ===================== 2023 =====================
   {
     eventKey: "phaseshift-2023",
     period: "Nov 2023 – Dec 2023",
@@ -46,116 +207,8 @@ const experiences = [
           "Budget coordination",
         ],
         points: [
-          "Assisted in fundraising efforts through sponsor and student outreach.",
+          "Assisted in fundraising through sponsor and student outreach.",
           "Supported budgeting and expense planning for Phase Shift events.",
-        ],
-      },
-    ],
-  },
-
-  {
-    eventKey: "rotract-2024",
-    period: "Nov 2023 – May 2024",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Member",
-        fest: "Rotaract Club of BMSCE",
-        event: "Community & Club Activities",
-        org: "Rotaract",
-        impact: [
-          "Community outreach",
-          "Volunteer coordination",
-          "Social service initiatives",
-        ],
-        points: [
-          "Participated in Rotaract-led community service initiatives.",
-          "Assisted in organizing and volunteering for club activities.",
-        ],
-      },
-    ],
-  },
-
-  {
-    eventKey: "utsav-2024",
-    period: "May 2024",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Student Volunteer",
-        fest: "UTSAV",
-        event: "Cultural Fest",
-        org: "BMSCE",
-        impact: [
-          "Event operations",
-          "Team support",
-          "Volunteer coordination",
-        ],
-        points: [
-          "Volunteered during UTSAV cultural fest.",
-          "Assisted with coordination and event operations.",
-        ],
-      },
-    ],
-  },
-
-  {
-    eventKey: "deathscape-2024",
-    period: "Oct 2024 – Dec 2024",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Event Organizer",
-        fest: "Phase Shift",
-        event: "DeathScape",
-        org: "BMSCE",
-        impact: [
-          "₹80k raised (Whatfix & Yucca)",
-          "Highest grossing event",
-          "End-to-end execution",
-          "Large-scale coordination",
-        ],
-        points: [
-          "Led planning and execution of the DeathScape event.",
-          "Handled event setup, testing, and deployment.",
-        ],
-      },
-      {
-        title: "Event Coordinator",
-        fest: "Phase Shift",
-        event: "DeathScape",
-        org: "BMSCE",
-        impact: [
-          "500+ participants",
-          "Team coordination",
-          "Live issue resolution",
-        ],
-        points: [
-          "Coordinated teams for smooth event flow.",
-          "Managed logistics and issue resolution during the fest.",
-        ],
-      },
-    ],
-  },
-
-  {
-    eventKey: "vtvo-2025",
-    period: "Mar 2025 – Jun 2025",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Member",
-        fest: "V The Volunteers (VTVO)",
-        event: "Social Service Activities",
-        org: "VTVO",
-        impact: [
-          "Community service",
-          "Social outreach",
-          "Volunteer engagement",
-        ],
-        points: [
-          "Participated in social service and volunteering initiatives.",
-          "Contributed to community-driven outreach programs.",
         ],
       },
     ],
@@ -166,20 +219,15 @@ function Experience() {
   return (
     <section id="experience" className="py-32 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-24"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-24">
           Experience Timeline
-        </motion.h2>
+        </h2>
 
         <div className="relative">
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-16">
-            {[...experiences].reverse().map((exp, index) => {
+            {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0;
               const logo = logoMap[exp.eventKey];
 
@@ -195,12 +243,7 @@ function Experience() {
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                        delay: index * 0.08,
-                      }}
+                      transition={{ delay: index * 0.08 }}
                       viewport={{ once: true }}
                       className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950 animate-pulse-once"
                     />
@@ -210,12 +253,7 @@ function Experience() {
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 120,
-                      damping: 18,
-                      delay: index * 0.08,
-                    }}
+                    transition={{ delay: index * 0.08 }}
                     viewport={{ once: true }}
                     className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
                   >
@@ -237,23 +275,14 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* ✅ Impact tags with hover animation */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
                               key={i}
                               whileHover={{ y: -2, scale: 1.06 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 15,
-                              }}
-                              className="px-3 py-1 text-xs font-medium rounded-full
+                              className="px-3 py-1 text-xs rounded-full
                                          bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                         text-emerald-300 border border-emerald-400/30
-                                         cursor-default
-                                         hover:border-cyan-400
-                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
+                                         text-emerald-300 border border-emerald-400/30"
                             >
                               {tag}
                             </motion.span>
