@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 /* eventKey → logo path */
 const logoMap = {
-  "vtvo-2025": "/experience/vtvo.png",
   "deathscape-3-2025": "/experience/phase-shift.png",
+  "vtvo-2025": "/experience/vtvo.png",
   "deathscape-2024": "/experience/phase-shift.png",
   "utsav-2024": "/experience/utsav.png",
   "rotract-2024": "/experience/rotract.png",
@@ -12,29 +12,6 @@ const logoMap = {
 
 const experiences = [
   // ===================== 2025 =====================
-  {
-    eventKey: "vtvo-2025",
-    period: "Mar 2025 – Jun 2025",
-    location: "Bengaluru, Karnataka, India",
-    roles: [
-      {
-        title: "Member",
-        fest: "V The Volunteers (VTVO)",
-        event: "Social Service Activities",
-        org: "VTVO",
-        impact: [
-          "Community service",
-          "Social outreach",
-          "Volunteer engagement",
-        ],
-        points: [
-          "Participated in social service and volunteering initiatives.",
-          "Contributed to community-driven outreach programs.",
-        ],
-      },
-    ],
-  },
-
   {
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
@@ -84,6 +61,29 @@ const experiences = [
         points: [
           "Handled sponsorship acquisition and negotiations.",
           "Managed sponsor branding and promotional placements.",
+        ],
+      },
+    ],
+  },
+
+  {
+    eventKey: "vtvo-2025",
+    period: "Mar 2025 – Jun 2025",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Member",
+        fest: "V The Volunteers (VTVO)",
+        event: "Social Service Activities",
+        org: "VTVO",
+        impact: [
+          "Community service",
+          "Social outreach",
+          "Volunteer engagement",
+        ],
+        points: [
+          "Participated in social service and volunteering initiatives.",
+          "Contributed to community-driven outreach programs.",
         ],
       },
     ],
@@ -238,7 +238,6 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -249,7 +248,6 @@ function Experience() {
                     />
                   </div>
 
-                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
