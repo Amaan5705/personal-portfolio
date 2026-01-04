@@ -28,6 +28,7 @@ const experiences = [
           "200+ participants",
           "₹1L sponsorship (Bosch)",
           "On-ground execution",
+          "Crowd coordination",
         ],
         points: [
           "Assisted in on-ground execution and participant coordination.",
@@ -46,7 +47,11 @@ const experiences = [
         fest: "Rotaract Club of BMSCE",
         event: "Community & Club Activities",
         org: "Rotaract",
-        impact: ["Community outreach", "Volunteer coordination"],
+        impact: [
+          "Community outreach",
+          "Volunteer coordination",
+          "Social service initiatives",
+        ],
         points: [
           "Participated in Rotaract-led community service initiatives.",
           "Assisted in organizing and volunteering for club activities.",
@@ -64,7 +69,11 @@ const experiences = [
         fest: "UTSAV",
         event: "Cultural Fest",
         org: "BMSCE",
-        impact: ["Event operations", "Team support"],
+        impact: [
+          "Event operations",
+          "Team support",
+          "Volunteer coordination",
+        ],
         points: [
           "Volunteered during UTSAV cultural fest.",
           "Assisted with coordination and event operations.",
@@ -85,7 +94,8 @@ const experiences = [
         impact: [
           "₹80k raised (Whatfix & Yucca)",
           "Highest grossing event",
-          "End-to-end ownership",
+          "End-to-end execution",
+          "Large-scale coordination",
         ],
         points: [
           "Led planning and execution of the DeathScape event.",
@@ -97,7 +107,11 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: ["500+ participants", "Live issue resolution"],
+        impact: [
+          "500+ participants",
+          "Team coordination",
+          "Live issue resolution",
+        ],
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
@@ -115,7 +129,11 @@ const experiences = [
         fest: "V The Volunteers (VTVO)",
         event: "Social Service Activities",
         org: "VTVO",
-        impact: ["Community service", "Social outreach"],
+        impact: [
+          "Community service",
+          "Social outreach",
+          "Volunteer engagement",
+        ],
         points: [
           "Participated in social service and volunteering initiatives.",
           "Contributed to community-driven outreach programs.",
@@ -133,7 +151,11 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["400+ participants", "Multi-team coordination"],
+        impact: [
+          "400+ participants",
+          "Multi-team coordination",
+          "Smooth execution",
+        ],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -144,7 +166,11 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["₹40k raised", "Sponsor partnerships"],
+        impact: [
+          "₹40k raised",
+          "Sponsor outreach",
+          "Brand partnerships",
+        ],
         points: [
           "Handled sponsor outreach and negotiations.",
           "Managed sponsor branding and deliverables.",
@@ -162,7 +188,11 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: ["450+ participants", "Zero downtime"],
+        impact: [
+          "450+ participants",
+          "Zero downtime",
+          "End-to-end ownership",
+        ],
         points: [
           "Led end-to-end planning and execution of DeathScape 3.0.",
           "Supervised LED strip testing and final installations.",
@@ -174,7 +204,11 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: ["Fundraising", "Budget coordination"],
+        impact: [
+          "Fundraising",
+          "Sponsor outreach",
+          "Budget coordination",
+        ],
         points: [
           "Raised funds through student and sponsor outreach.",
           "Assisted in budgeting and expense coordination.",
@@ -185,7 +219,11 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: ["Sponsorship acquisition", "Brand placements"],
+        impact: [
+          "Sponsorship acquisition",
+          "Brand placements",
+          "Partner management",
+        ],
         points: [
           "Handled sponsorship acquisition and negotiations.",
           "Managed sponsor branding and promotional placements.",
@@ -223,7 +261,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
+                  {/* timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -241,7 +279,7 @@ function Experience() {
                     />
                   </div>
 
-                  {/* Card */}
+                  {/* card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -281,20 +319,18 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {role.impact && (
-                          <div className="flex flex-wrap gap-2 my-2">
-                            {role.impact.map((tag, i) => (
-                              <span
-                                key={i}
-                                className="px-2 py-0.5 text-xs rounded-full
-                                           bg-emerald-500/10 text-emerald-400
-                                           border border-emerald-500/30"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                        <div className="flex flex-wrap gap-2 my-2">
+                          {role.impact.map((tag, i) => (
+                            <span
+                              key={i}
+                              className="px-2 py-0.5 text-xs rounded-full
+                                         bg-emerald-500/10 text-emerald-400
+                                         border border-emerald-500/30"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
                         <p className="text-sm text-gray-400 mb-2">
                           <span className="text-sky-400 font-medium">
@@ -326,6 +362,5 @@ function Experience() {
 }
 
 export default Experience;
-
 
 
