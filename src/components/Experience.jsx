@@ -1,9 +1,19 @@
 import { motion } from "framer-motion";
-import vtvoLogo from "../assets/experience/vtvo.png";
-import utsavLogo from "../assets/experience/utsav.png";
-import rotractLogo from "../assets/experience/rotract.png";
-import phaseLogo from "../assets/experience/phase-shift.png";
 
+/* Map eventKey → logo (served from public/) */
+const logoMap = {
+  "phaseshift-2023": "/experience/phase-shift.png",
+  "deathscape-2024": "/experience/phase-shift.png",
+  "deathscape-3-2025": "/experience/phase-shift.png",
+
+  "utsav-2024": "/experience/utsav.png",
+  "deathscape-2-2025": "/experience/utsav.png",
+
+  "vtvo-2025": "/experience/vtvo.png",
+
+  // ✅ Rotaract
+  "rotract-2024": "/experience/rotract.png",
+};
 
 const experiences = [
   {
@@ -66,6 +76,24 @@ const experiences = [
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
+        ],
+      },
+    ],
+  },
+  {
+    eventKey: "rotract-2024",
+    period: "2024",
+    location: "Bengaluru, Karnataka, India",
+    side: "left",
+    roles: [
+      {
+        title: "Member",
+        fest: "Rotaract Club",
+        event: "Community & Club Activities",
+        org: "Rotaract",
+        points: [
+          "Participated in Rotaract-led community service initiatives.",
+          "Assisted in organizing and volunteering for club activities.",
         ],
       },
     ],
@@ -177,6 +205,7 @@ function Experience() {
           <div className="space-y-28">
             {[...experiences].reverse().map((exp) => {
               const isLeft = exp.side === "left";
+              const logo = logoMap[exp.eventKey];
 
               return (
                 <div
@@ -185,28 +214,34 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
+                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
                     <div className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950" />
                   </div>
 
-                  {/* EXPERIENCE CARD WITH HOVER */}
+                  {/* Experience card */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{
-                      y: -6,
-                      scale: 1.02,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 20,
-                    }}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     viewport={{ once: true }}
-                    className="w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6
+                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6
                                hover:border-emerald-500/60 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]
                                transition-colors"
                   >
+                    {/* Logo */}
+                    {logo && (
+                      <div className="absolute -top-6 left-6 bg-slate-950 rounded-xl p-2 border border-slate-700">
+                        <img
+                          src={logo}
+                          alt="organization logo"
+                          className="w-10 h-10 object-contain"
+                        />
+                      </div>
+                    )}
+
+                    {/* Period */}
                     <div className="flex justify-end mb-4">
                       <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 font-medium">
                         {exp.period}
@@ -253,5 +288,3 @@ function Experience() {
 }
 
 export default Experience;
-
-
