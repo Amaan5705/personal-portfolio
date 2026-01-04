@@ -10,7 +10,6 @@ const logoMap = {
 };
 
 const experiences = [
-  // ===================== 2025 =====================
   {
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
@@ -29,7 +28,7 @@ const experiences = [
         points: [
           "Conceptualized and founded DeathScape 3.0 as a flagship event.",
           "Led end-to-end planning and execution.",
-          "Supervised LED strip testing, final installations, and game flow.",
+          "Supervised LED strip testing and final installations.",
           "Managed on-ground operations during peak hours.",
         ],
       },
@@ -38,10 +37,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: [
-          "Fund mobilisation",
-          "Student outreach",
-        ],
+        impact: ["Fund mobilisation", "Student outreach"],
         points: [
           "Raised funds through student outreach and internal promotions.",
           "Assisted in budgeting and financial planning.",
@@ -52,10 +48,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: [
-          "Sponsor acquisition",
-          "Brand placements",
-        ],
+        impact: ["Sponsor acquisition", "Brand placements"],
         points: [
           "Handled sponsor acquisition and negotiations.",
           "Managed sponsor branding and on-ground visibility.",
@@ -73,10 +66,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: [
-          "400+ participants",
-          "Event execution",
-        ],
+        impact: ["400+ participants", "Event execution"],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -87,10 +77,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: [
-          "₹40k raised",
-          "Sponsor outreach",
-        ],
+        impact: ["₹40k raised", "Sponsor outreach"],
         points: [
           "Handled sponsor outreach and negotiations.",
           "Managed sponsor branding and deliverables.",
@@ -121,7 +108,6 @@ const experiences = [
     ],
   },
 
-  // ===================== 2024 =====================
   {
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
@@ -131,10 +117,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: [
-          "₹80k raised (Whatfix & Yucca)",
-          "Highest grossing event",
-        ],
+        impact: ["₹80k raised (Whatfix & Yucca)", "Highest grossing event"],
         points: [
           "Led planning and execution of the DeathScape event.",
           "Handled event setup, testing, and deployment.",
@@ -145,10 +128,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: [
-          "500+ participants",
-          "Team coordination",
-        ],
+        impact: ["500+ participants", "Team coordination"],
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
@@ -166,10 +146,7 @@ const experiences = [
         fest: "Rotaract Club of BMSCE",
         event: "Community & Club Activities",
         org: "Rotaract",
-        impact: [
-          "Community outreach",
-          "Volunteer engagement",
-        ],
+        impact: ["Community outreach", "Volunteer engagement"],
         points: [
           "Participated in Rotaract-led community service initiatives.",
           "Assisted in organizing and volunteering for club activities.",
@@ -178,7 +155,6 @@ const experiences = [
     ],
   },
 
-  // ===================== 2023 =====================
   {
     eventKey: "phaseshift-2023",
     period: "Nov 2023 – Dec 2023",
@@ -204,13 +180,10 @@ const experiences = [
         fest: "Phase Shift",
         event: "Tech Fest Fundraising",
         org: "BMSCE",
-        impact: [
-          "Sponsor outreach",
-          "Budget coordination",
-        ],
+        impact: ["Sponsor outreach", "Budget coordination"],
         points: [
           "Assisted in fundraising through sponsor and student outreach.",
-          "Supported budgeting and expense planning for Phase Shift events.",
+          "Supported budgeting and expense planning.",
         ],
       },
     ],
@@ -240,6 +213,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
+                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -250,17 +224,41 @@ function Experience() {
                     />
                   </div>
 
+                  {/* CARD (hover restored) */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.08 }}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.015,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 20,
+                    }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
+                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6
+                               hover:border-emerald-500/60
+                               hover:shadow-[0_25px_45px_-15px_rgba(16,185,129,0.35)]"
                   >
+                    {/* LOGO (hover restored) */}
                     {logo && (
-                      <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700">
-                        <img src={logo} className="w-10 h-10 object-contain" />
-                      </div>
+                      <motion.div
+                        whileHover={{ y: -4, scale: 1.05 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 18,
+                        }}
+                        className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700"
+                      >
+                        <img
+                          src={logo}
+                          alt="logo"
+                          className="w-10 h-10 object-contain"
+                        />
+                      </motion.div>
                     )}
 
                     <div className="flex justify-end mb-4">
@@ -275,6 +273,7 @@ function Experience() {
                           {role.title}
                         </h3>
 
+                        {/* TAGS */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
@@ -286,10 +285,10 @@ function Experience() {
                                 damping: 15,
                               }}
                               className="px-3 py-1 text-xs font-medium rounded-full
-                                         bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                         text-emerald-300 border border-emerald-400/30
-                                         hover:border-cyan-400
-                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
+                                bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
+                                text-emerald-300 border border-emerald-400/30
+                                hover:border-cyan-400
+                                hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
                             </motion.span>
