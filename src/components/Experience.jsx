@@ -3,10 +3,13 @@ import { motion } from "framer-motion";
 /* eventKey → logo path */
 const logoMap = {
   "phaseshift-2023": "/experience/phase-shift.png",
+  "phaseshift-fundraiser-2023": "/experience/phase-shift.png",
   "deathscape-2024": "/experience/phase-shift.png",
   "deathscape-3-2025": "/experience/phase-shift.png",
+
   "utsav-2024": "/experience/utsav.png",
   "deathscape-2-2025": "/experience/utsav.png",
+
   "vtvo-2025": "/experience/vtvo.png",
   "rotract-2024": "/experience/rotract.png",
 };
@@ -35,6 +38,31 @@ const experiences = [
       },
     ],
   },
+
+  /* ✅ NEW ENTRY – Student Fundraiser */
+  {
+    eventKey: "phaseshift-fundraiser-2023",
+    period: "Nov 2023 – Dec 2023",
+    location: "Bengaluru, Karnataka, India",
+    roles: [
+      {
+        title: "Student Fundraiser",
+        fest: "Phase Shift",
+        event: "Tech Fest Fundraising",
+        org: "BMSCE",
+        impact: [
+          "Sponsor outreach",
+          "Fundraising support",
+          "Budget coordination",
+        ],
+        points: [
+          "Assisted in fundraising efforts through sponsor and student outreach.",
+          "Supported budgeting and expense planning for Phase Shift events.",
+        ],
+      },
+    ],
+  },
+
   {
     eventKey: "rotract-2024",
     period: "Nov 2023 – May 2024",
@@ -57,6 +85,7 @@ const experiences = [
       },
     ],
   },
+
   {
     eventKey: "utsav-2024",
     period: "May 2024",
@@ -79,6 +108,7 @@ const experiences = [
       },
     ],
   },
+
   {
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
@@ -117,6 +147,7 @@ const experiences = [
       },
     ],
   },
+
   {
     eventKey: "vtvo-2025",
     period: "Mar 2025 – Jun 2025",
@@ -139,6 +170,7 @@ const experiences = [
       },
     ],
   },
+
   {
     eventKey: "deathscape-2-2025",
     period: "Apr 2025 – May 2025",
@@ -176,6 +208,7 @@ const experiences = [
       },
     ],
   },
+
   {
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
@@ -195,36 +228,6 @@ const experiences = [
           "Led end-to-end planning and execution of DeathScape 3.0.",
           "Supervised LED strip testing and final installations.",
           "Managed on-ground operations during the event.",
-        ],
-      },
-      {
-        title: "Student Fundraiser",
-        fest: "Phase Shift",
-        event: "DeathScape 3.0",
-        org: "BMSCE",
-        impact: [
-          "Fundraising",
-          "Sponsor outreach",
-          "Budget coordination",
-        ],
-        points: [
-          "Raised funds through student and sponsor outreach.",
-          "Assisted in budgeting and expense coordination.",
-        ],
-      },
-      {
-        title: "Sponsorship Coordinator",
-        fest: "Phase Shift",
-        event: "DeathScape 3.0",
-        org: "BMSCE",
-        impact: [
-          "Sponsorship acquisition",
-          "Brand placements",
-          "Partner management",
-        ],
-        points: [
-          "Handled sponsorship acquisition and negotiations.",
-          "Managed sponsor branding and promotional placements.",
         ],
       },
     ],
@@ -259,7 +262,6 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -271,13 +273,10 @@ function Experience() {
                         delay: index * 0.08,
                       }}
                       viewport={{ once: true }}
-                      className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950
-                                 shadow-[0_0_0_0_rgba(16,185,129,0.6)]
-                                 animate-pulse-once"
+                      className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950 animate-pulse-once"
                     />
                   </div>
 
-                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -289,19 +288,11 @@ function Experience() {
                       delay: index * 0.08,
                     }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800
-                               rounded-2xl p-6 hover:border-emerald-500/60
-                               hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]"
+                    className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6"
                   >
                     {logo && (
-                      <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950
-                                      border border-slate-700 hover:border-emerald-400
-                                      hover:shadow-[0_0_20px_rgba(16,185,129,0.45)]">
-                        <img
-                          src={logo}
-                          alt="logo"
-                          className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-105"
-                        />
+                      <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700">
+                        <img src={logo} className="w-10 h-10 object-contain" />
                       </div>
                     )}
 
@@ -317,23 +308,15 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* Impact tags with hover animation */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
                               key={i}
                               whileHover={{ y: -2, scale: 1.06 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 15,
-                              }}
+                              transition={{ stiffness: 300, damping: 15 }}
                               className="px-3 py-1 text-xs font-medium rounded-full
                                          bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                         text-emerald-300 border border-emerald-400/30
-                                         cursor-default
-                                         hover:border-cyan-400
-                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
+                                         text-emerald-300 border border-emerald-400/30"
                             >
                               {tag}
                             </motion.span>
@@ -370,5 +353,4 @@ function Experience() {
 }
 
 export default Experience;
-
 
