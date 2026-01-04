@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
 
-/* eventKey → logo path (from public/experience) */
+/* eventKey → logo path */
 const logoMap = {
   "phaseshift-2023": "/experience/phase-shift.png",
   "deathscape-2024": "/experience/phase-shift.png",
   "deathscape-3-2025": "/experience/phase-shift.png",
-
   "utsav-2024": "/experience/utsav.png",
   "deathscape-2-2025": "/experience/utsav.png",
-
   "vtvo-2025": "/experience/vtvo.png",
   "rotract-2024": "/experience/rotract.png",
 };
@@ -261,7 +259,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* timeline dot */}
+                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -279,7 +277,7 @@ function Experience() {
                     />
                   </div>
 
-                  {/* card */}
+                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -319,16 +317,26 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        <div className="flex flex-wrap gap-2 my-2">
+                        {/* Impact tags with hover animation */}
+                        <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
-                            <span
+                            <motion.span
                               key={i}
-                              className="px-2 py-0.5 text-xs rounded-full
-                                         bg-emerald-500/10 text-emerald-400
-                                         border border-emerald-500/30"
+                              whileHover={{ y: -2, scale: 1.06 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 15,
+                              }}
+                              className="px-3 py-1 text-xs font-medium rounded-full
+                                         bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
+                                         text-emerald-300 border border-emerald-400/30
+                                         cursor-default
+                                         hover:border-cyan-400
+                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
-                            </span>
+                            </motion.span>
                           ))}
                         </div>
 
