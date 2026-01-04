@@ -15,7 +15,6 @@ const experiences = [
   {
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
-    location: "Bengaluru, Karnataka, India",
     roles: [
       {
         title: "Club Event Organizer",
@@ -33,43 +32,12 @@ const experiences = [
           "Managed on-ground operations during the event.",
         ],
       },
-      {
-        title: "Student Fundraiser",
-        fest: "Phase Shift",
-        event: "DeathScape 3.0",
-        org: "BMSCE",
-        impact: [
-          "Fundraising",
-          "Sponsor outreach",
-          "Budget coordination",
-        ],
-        points: [
-          "Raised funds through student and sponsor outreach.",
-          "Assisted in budgeting and expense coordination.",
-        ],
-      },
-      {
-        title: "Sponsorship Coordinator",
-        fest: "Phase Shift",
-        event: "DeathScape 3.0",
-        org: "BMSCE",
-        impact: [
-          "Sponsorship acquisition",
-          "Brand placements",
-          "Partner management",
-        ],
-        points: [
-          "Handled sponsorship acquisition and negotiations.",
-          "Managed sponsor branding and promotional placements.",
-        ],
-      },
     ],
   },
 
   {
     eventKey: "vtvo-2025",
     period: "Mar 2025 – Jun 2025",
-    location: "Bengaluru, Karnataka, India",
     roles: [
       {
         title: "Member",
@@ -93,7 +61,6 @@ const experiences = [
   {
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
-    location: "Bengaluru, Karnataka, India",
     roles: [
       {
         title: "Event Organizer",
@@ -103,7 +70,6 @@ const experiences = [
         impact: [
           "₹80k raised (Whatfix & Yucca)",
           "Highest grossing event",
-          "Large-scale execution",
         ],
         points: [
           "Led planning and execution of the DeathScape event.",
@@ -118,7 +84,6 @@ const experiences = [
         impact: [
           "500+ participants",
           "Team coordination",
-          "Live issue resolution",
         ],
         points: [
           "Coordinated teams for smooth event flow.",
@@ -131,7 +96,6 @@ const experiences = [
   {
     eventKey: "utsav-2024",
     period: "May 2024",
-    location: "Bengaluru, Karnataka, India",
     roles: [
       {
         title: "Student Volunteer",
@@ -148,13 +112,40 @@ const experiences = [
           "Assisted with coordination and event operations.",
         ],
       },
+      {
+        title: "Club Event Organizer",
+        fest: "UTSAV",
+        event: "DeathScape 2.0",
+        org: "BMSCE",
+        impact: [
+          "400+ participants",
+          "Event execution",
+        ],
+        points: [
+          "Organized and executed DeathScape 2.0 during UTSAV.",
+          "Managed team coordination and on-site execution.",
+        ],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        fest: "UTSAV",
+        event: "DeathScape 2.0",
+        org: "BMSCE",
+        impact: [
+          "₹40k raised",
+          "Sponsor outreach",
+        ],
+        points: [
+          "Handled sponsor outreach and negotiations.",
+          "Managed sponsor branding and deliverables.",
+        ],
+      },
     ],
   },
 
   {
     eventKey: "rotract-2024",
     period: "Nov 2023 – May 2024",
-    location: "Bengaluru, Karnataka, India",
     roles: [
       {
         title: "Member",
@@ -164,7 +155,6 @@ const experiences = [
         impact: [
           "Community outreach",
           "Volunteer engagement",
-          "Social initiatives",
         ],
         points: [
           "Participated in Rotaract-led community service initiatives.",
@@ -178,7 +168,6 @@ const experiences = [
   {
     eventKey: "phaseshift-2023",
     period: "Nov 2023 – Dec 2023",
-    location: "Bengaluru, Karnataka, India",
     roles: [
       {
         title: "Event Volunteer",
@@ -203,7 +192,6 @@ const experiences = [
         org: "BMSCE",
         impact: [
           "Sponsor outreach",
-          "Fundraising support",
           "Budget coordination",
         ],
         points: [
@@ -238,6 +226,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
+                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -248,6 +237,7 @@ function Experience() {
                     />
                   </div>
 
+                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -273,14 +263,21 @@ function Experience() {
                           {role.title}
                         </h3>
 
+                        {/* ✅ TAGS WITH WORKING HOVER */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
                               key={i}
                               whileHover={{ y: -2, scale: 1.06 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 15,
+                              }}
                               className="px-3 py-1 text-xs rounded-full
                                          bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                         text-emerald-300 border border-emerald-400/30"
+                                         text-emerald-300 border border-emerald-400/30
+                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
                             </motion.span>
