@@ -224,40 +224,31 @@ function Experience() {
                     />
                   </div>
 
-                  {/* CARD (hover restored) */}
+                  {/* Card */}
                   <motion.div
                     initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    whileHover={{
-                      y: -6,
-                      scale: 1.015,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 20,
-                    }}
+                    whileHover={{ y: -6, scale: 1.015 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     viewport={{ once: true }}
                     className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800 rounded-2xl p-6
                                hover:border-emerald-500/60
                                hover:shadow-[0_25px_45px_-15px_rgba(16,185,129,0.35)]"
                   >
-                    {/* LOGO (hover restored) */}
+                    {/* Logo with idle float */}
                     {logo && (
                       <motion.div
-                        whileHover={{ y: -4, scale: 1.05 }}
+                        animate={{ y: [0, -6, 0] }}
                         transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 18,
+                          duration: 3.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
                         }}
-                        className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700"
+                        whileHover={{ y: -10, scale: 1.08 }}
+                        className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700
+                                   shadow-[0_0_25px_rgba(16,185,129,0.25)]"
                       >
-                        <img
-                          src={logo}
-                          alt="logo"
-                          className="w-10 h-10 object-contain"
-                        />
+                        <img src={logo} alt="" className="w-10 h-10 object-contain" />
                       </motion.div>
                     )}
 
@@ -273,22 +264,18 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* TAGS */}
+                        {/* Tags */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
                               key={i}
                               whileHover={{ y: -2, scale: 1.06 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 15,
-                              }}
+                              transition={{ type: "spring", stiffness: 300, damping: 15 }}
                               className="px-3 py-1 text-xs font-medium rounded-full
-                                bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                text-emerald-300 border border-emerald-400/30
-                                hover:border-cyan-400
-                                hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
+                                         bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
+                                         text-emerald-300 border border-emerald-400/30
+                                         hover:border-cyan-400
+                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
                             </motion.span>
