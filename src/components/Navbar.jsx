@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 
 function Navbar() {
   const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
+  // Scroll spy (active section)
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
@@ -23,6 +25,16 @@ function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  // Glow on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const links = [
     { name: "Home", id: "home" },
     { name: "Projects", id: "projects" },
@@ -32,12 +44,14 @@ function Navbar() {
 
   return (
     <nav
-      className="
-        fixed top-0 w-full z-50
-        bg-gradient-to-r from-[#0f172a]/70 via-[#020617]/70 to-[#0f172a]/70
+      className={`fixed top-0 w-full z-50 transition-all duration-300
         backdrop-blur-xl
-        border-b border-indigo-500/20
-      "
+        ${
+          scrolled
+            ? "bg-gradient-to-r from-[#0f172a]/90 via-[#020617]/90 to-[#0f172a]/90 shadow-[0_0_25px_rgba(99,102,241,0.25)] border-b border-indigo-500/30"
+            : "bg-gradient-to-r from-[#0f172a]/70 via-[#020617]/70 to-[#0f172a]/70 border-b border-indigo-500/20"
+        }
+      `}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -46,7 +60,7 @@ function Navbar() {
           Amaan
         </h1>
 
-        {/* Navigation Links */}
+        {/* Links */}
         <div className="flex gap-8">
           {links.map((link) => (
             <a
@@ -78,4 +92,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
