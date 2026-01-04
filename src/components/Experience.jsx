@@ -24,7 +24,11 @@ const experiences = [
         fest: "Phase Shift",
         event: "Zapocalypse (Laser-Tag Event)",
         org: "BMSCE",
-        impact: ["On-ground execution", "Crowd coordination"],
+        impact: [
+          "200+ participants",
+          "₹1L sponsorship (Bosch)",
+          "On-ground execution",
+        ],
         points: [
           "Assisted in on-ground execution and participant coordination.",
           "Supported the core team during peak event hours.",
@@ -78,7 +82,11 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: ["300+ participants", "End-to-end execution"],
+        impact: [
+          "₹80k raised (Whatfix & Yucca)",
+          "Highest grossing event",
+          "End-to-end ownership",
+        ],
         points: [
           "Led planning and execution of the DeathScape event.",
           "Handled event setup, testing, and deployment.",
@@ -89,7 +97,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: ["Team coordination", "Live issue resolution"],
+        impact: ["500+ participants", "Live issue resolution"],
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
@@ -125,7 +133,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["Multi-team coordination", "Smooth execution"],
+        impact: ["400+ participants", "Multi-team coordination"],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -136,7 +144,7 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["Sponsor outreach", "Brand partnerships"],
+        impact: ["₹40k raised", "Sponsor partnerships"],
         points: [
           "Handled sponsor outreach and negotiations.",
           "Managed sponsor branding and deliverables.",
@@ -154,7 +162,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: ["Large-scale execution", "Zero downtime"],
+        impact: ["450+ participants", "Zero downtime"],
         points: [
           "Led end-to-end planning and execution of DeathScape 3.0.",
           "Supervised LED strip testing and final installations.",
@@ -166,7 +174,7 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape 3.0",
         org: "BMSCE",
-        impact: ["₹50k+ raised", "Sponsor coordination"],
+        impact: ["Fundraising", "Budget coordination"],
         points: [
           "Raised funds through student and sponsor outreach.",
           "Assisted in budgeting and expense coordination.",
@@ -215,7 +223,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* Dot pulse */}
+                  {/* Timeline dot */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -224,7 +232,7 @@ function Experience() {
                         type: "spring",
                         stiffness: 300,
                         damping: 20,
-                        delay: index * 0.15,
+                        delay: index * 0.08,
                       }}
                       viewport={{ once: true }}
                       className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950
@@ -235,34 +243,24 @@ function Experience() {
 
                   {/* Card */}
                   <motion.div
-                    initial={{
-                      opacity: 0,
-                      x: isLeft ? -80 : 80,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
+                    initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     whileHover={{ y: -6, scale: 1.02 }}
                     transition={{
                       type: "spring",
                       stiffness: 120,
                       damping: 18,
-                      delay: index * 0.15,
+                      delay: index * 0.08,
                     }}
                     viewport={{ once: true }}
                     className="relative w-full md:w-[46%] bg-slate-900/90 border border-slate-800
                                rounded-2xl p-6 hover:border-emerald-500/60
                                hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]"
                   >
-                    {/* FULL COLOR LOGO */}
                     {logo && (
-                      <div
-                        className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950
-                                   border border-slate-700 transition-all duration-300
-                                   hover:border-emerald-400
-                                   hover:shadow-[0_0_20px_rgba(16,185,129,0.45)]"
-                      >
+                      <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950
+                                      border border-slate-700 hover:border-emerald-400
+                                      hover:shadow-[0_0_20px_rgba(16,185,129,0.45)]">
                         <img
                           src={logo}
                           alt="logo"
@@ -328,5 +326,6 @@ function Experience() {
 }
 
 export default Experience;
+
 
 
