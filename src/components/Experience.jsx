@@ -237,16 +237,26 @@ function Experience() {
                           {role.title}
                         </h3>
 
+                        {/* ✅ Impact tags with hover animation */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
-                            <span
+                            <motion.span
                               key={i}
-                              className="px-3 py-1 text-xs rounded-full
+                              whileHover={{ y: -2, scale: 1.06 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 15,
+                              }}
+                              className="px-3 py-1 text-xs font-medium rounded-full
                                          bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                         text-emerald-300 border border-emerald-400/30"
+                                         text-emerald-300 border border-emerald-400/30
+                                         cursor-default
+                                         hover:border-cyan-400
+                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
-                            </span>
+                            </motion.span>
                           ))}
                         </div>
 
