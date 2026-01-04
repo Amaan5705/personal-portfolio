@@ -21,14 +21,16 @@ const experiences = [
         event: "DeathScape 3.0",
         org: "BMSCE",
         impact: [
+          "Founder of the event",
           "450+ participants",
           "Zero downtime",
           "End-to-end ownership",
         ],
         points: [
-          "Led end-to-end planning and execution of DeathScape 3.0.",
-          "Supervised LED strip testing and final installations.",
-          "Managed on-ground operations during the event.",
+          "Conceptualized and founded DeathScape 3.0 as a flagship event.",
+          "Led end-to-end planning and execution.",
+          "Supervised LED strip testing, final installations, and game flow.",
+          "Managed on-ground operations during peak hours.",
         ],
       },
       {
@@ -41,7 +43,7 @@ const experiences = [
           "Student outreach",
         ],
         points: [
-          "Raised funds through student outreach and engagement.",
+          "Raised funds through student outreach and internal promotions.",
           "Assisted in budgeting and financial planning.",
         ],
       },
@@ -71,7 +73,10 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["400+ participants", "Event execution"],
+        impact: [
+          "400+ participants",
+          "Event execution",
+        ],
         points: [
           "Organized and executed DeathScape 2.0 during UTSAV.",
           "Managed team coordination and on-site execution.",
@@ -82,7 +87,10 @@ const experiences = [
         fest: "UTSAV",
         event: "DeathScape 2.0",
         org: "BMSCE",
-        impact: ["₹40k raised", "Sponsor outreach"],
+        impact: [
+          "₹40k raised",
+          "Sponsor outreach",
+        ],
         points: [
           "Handled sponsor outreach and negotiations.",
           "Managed sponsor branding and deliverables.",
@@ -137,7 +145,10 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: ["500+ participants", "Team coordination"],
+        impact: [
+          "500+ participants",
+          "Team coordination",
+        ],
         points: [
           "Coordinated teams for smooth event flow.",
           "Managed logistics and issue resolution during the fest.",
@@ -193,7 +204,10 @@ const experiences = [
         fest: "Phase Shift",
         event: "Tech Fest Fundraising",
         org: "BMSCE",
-        impact: ["Sponsor outreach", "Budget coordination"],
+        impact: [
+          "Sponsor outreach",
+          "Budget coordination",
+        ],
         points: [
           "Assisted in fundraising through sponsor and student outreach.",
           "Supported budgeting and expense planning for Phase Shift events.",
@@ -272,10 +286,10 @@ function Experience() {
                                 damping: 15,
                               }}
                               className="px-3 py-1 text-xs font-medium rounded-full
-                                bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
-                                text-emerald-300 border border-emerald-400/30
-                                hover:border-cyan-400
-                                hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
+                                         bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
+                                         text-emerald-300 border border-emerald-400/30
+                                         hover:border-cyan-400
+                                         hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
                             </motion.span>
