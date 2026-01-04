@@ -201,7 +201,6 @@ function Experience() {
         </motion.h2>
 
         <div className="relative">
-          {/* timeline line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
           <div className="space-y-16">
@@ -216,7 +215,7 @@ function Experience() {
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
-                  {/* dot pulse */}
+                  {/* Dot pulse */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -234,7 +233,7 @@ function Experience() {
                     />
                   </div>
 
-                  {/* card */}
+                  {/* Card */}
                   <motion.div
                     initial={{
                       opacity: 0,
@@ -256,17 +255,18 @@ function Experience() {
                                rounded-2xl p-6 hover:border-emerald-500/60
                                hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.35)]"
                   >
-                    {/* logo */}
+                    {/* FULL COLOR LOGO */}
                     {logo && (
-                      <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950
-                                      border border-slate-700 transition-all duration-300
-                                      hover:border-emerald-400
-                                      hover:shadow-[0_0_20px_rgba(16,185,129,0.45)]">
+                      <div
+                        className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950
+                                   border border-slate-700 transition-all duration-300
+                                   hover:border-emerald-400
+                                   hover:shadow-[0_0_20px_rgba(16,185,129,0.45)]"
+                      >
                         <img
                           src={logo}
                           alt="logo"
-                          className="w-10 h-10 object-contain grayscale opacity-70
-                                     hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                          className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-105"
                         />
                       </div>
                     )}
@@ -283,7 +283,6 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* impact tags */}
                         {role.impact && (
                           <div className="flex flex-wrap gap-2 my-2">
                             {role.impact.map((tag, i) => (
@@ -329,4 +328,5 @@ function Experience() {
 }
 
 export default Experience;
+
 
