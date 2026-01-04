@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 
-/* eventKey → logo path */
+/* Logo mapping (served from /public/experience) */
 const logoMap = {
   "deathscape-3-2025": "/experience/phase-shift.png",
+  "utsav-2025": "/experience/utsav.png",
   "vtvo-2025": "/experience/vtvo.png",
   "deathscape-2024": "/experience/phase-shift.png",
-  "utsav-2024": "/experience/utsav.png",
   "rotract-2024": "/experience/rotract.png",
   "phaseshift-2023": "/experience/phase-shift.png",
 };
 
+/* Timeline data — ORDER MATTERS (newest → oldest) */
 const experiences = [
   // ===================== 2025 =====================
   {
@@ -30,6 +31,41 @@ const experiences = [
           "Led end-to-end planning and execution of DeathScape 3.0.",
           "Supervised LED strip testing and final installations.",
           "Managed on-ground operations during the event.",
+        ],
+      },
+    ],
+  },
+
+  {
+    eventKey: "utsav-2025",
+    period: "Apr 2025 – May 2025",
+    roles: [
+      {
+        title: "Club Event Organizer",
+        fest: "UTSAV",
+        event: "DeathScape 2.0",
+        org: "BMSCE",
+        impact: [
+          "400+ participants",
+          "Event execution",
+        ],
+        points: [
+          "Organized and executed DeathScape 2.0 during UTSAV.",
+          "Managed team coordination and on-site execution.",
+        ],
+      },
+      {
+        title: "Sponsorship Coordinator",
+        fest: "UTSAV",
+        event: "DeathScape 2.0",
+        org: "BMSCE",
+        impact: [
+          "₹40k raised",
+          "Sponsor outreach",
+        ],
+        points: [
+          "Handled sponsor outreach and negotiations.",
+          "Managed sponsor branding and deliverables.",
         ],
       },
     ],
@@ -94,56 +130,6 @@ const experiences = [
   },
 
   {
-    eventKey: "utsav-2024",
-    period: "May 2024",
-    roles: [
-      {
-        title: "Student Volunteer",
-        fest: "UTSAV",
-        event: "Cultural Fest",
-        org: "BMSCE",
-        impact: [
-          "Event operations",
-          "Volunteer coordination",
-          "Team support",
-        ],
-        points: [
-          "Volunteered during UTSAV cultural fest.",
-          "Assisted with coordination and event operations.",
-        ],
-      },
-      {
-        title: "Club Event Organizer",
-        fest: "UTSAV",
-        event: "DeathScape 2.0",
-        org: "BMSCE",
-        impact: [
-          "400+ participants",
-          "Event execution",
-        ],
-        points: [
-          "Organized and executed DeathScape 2.0 during UTSAV.",
-          "Managed team coordination and on-site execution.",
-        ],
-      },
-      {
-        title: "Sponsorship Coordinator",
-        fest: "UTSAV",
-        event: "DeathScape 2.0",
-        org: "BMSCE",
-        impact: [
-          "₹40k raised",
-          "Sponsor outreach",
-        ],
-        points: [
-          "Handled sponsor outreach and negotiations.",
-          "Managed sponsor branding and deliverables.",
-        ],
-      },
-    ],
-  },
-
-  {
     eventKey: "rotract-2024",
     period: "Nov 2023 – May 2024",
     roles: [
@@ -192,7 +178,6 @@ const experiences = [
         org: "BMSCE",
         impact: [
           "Sponsor outreach",
-          "Fundraising support",
           "Budget coordination",
         ],
         points: [
@@ -213,9 +198,10 @@ function Experience() {
         </h2>
 
         <div className="relative">
+          {/* Timeline line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-emerald-600/70 -translate-x-1/2" />
 
-          <div className="space-y-16">
+          <div className="space-y-20">
             {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0;
               const logo = logoMap[exp.eventKey];
@@ -228,13 +214,13 @@ function Experience() {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-10 z-10">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
                       transition={{ delay: index * 0.08 }}
                       viewport={{ once: true }}
-                      className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950 animate-pulse-once"
+                      className="w-5 h-5 rounded-full border-4 border-emerald-500 bg-slate-950"
                     />
                   </div>
 
@@ -268,7 +254,7 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* ✅ TAGS WITH WORKING HOVER ANIMATION */}
+                        {/* Hover-animated tags */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
