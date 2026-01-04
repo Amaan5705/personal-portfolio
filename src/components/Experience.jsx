@@ -10,6 +10,7 @@ const logoMap = {
 };
 
 const experiences = [
+  // ===================== 2025 =====================
   {
     eventKey: "deathscape-3-2025",
     period: "Aug 2025 – Sep 2025",
@@ -20,14 +21,12 @@ const experiences = [
         event: "DeathScape 3.0",
         org: "BMSCE",
         impact: [
-          "Founder of the event",
           "450+ participants",
           "Zero downtime",
           "End-to-end ownership",
         ],
         points: [
-          "Conceptualized and founded DeathScape 3.0 as a flagship event.",
-          "Led end-to-end planning and execution.",
+          "Led end-to-end planning and execution of DeathScape 3.0.",
           "Supervised LED strip testing and final installations.",
           "Managed on-ground operations during peak hours.",
         ],
@@ -108,6 +107,7 @@ const experiences = [
     ],
   },
 
+  // ===================== 2024 =====================
   {
     eventKey: "deathscape-2024",
     period: "Oct 2024 – Dec 2024",
@@ -117,8 +117,13 @@ const experiences = [
         fest: "Phase Shift",
         event: "DeathScape",
         org: "BMSCE",
-        impact: ["₹80k raised (Whatfix & Yucca)", "Highest grossing event"],
+        impact: [
+          "Founder of the event",
+          "₹80k raised (Whatfix & Yucca)",
+          "Highest grossing event",
+        ],
         points: [
+          "Conceptualized and founded DeathScape as a flagship Phase Shift event.",
           "Led planning and execution of the DeathScape event.",
           "Handled event setup, testing, and deployment.",
         ],
@@ -155,6 +160,7 @@ const experiences = [
     ],
   },
 
+  // ===================== 2023 =====================
   {
     eventKey: "phaseshift-2023",
     period: "Nov 2023 – Dec 2023",
@@ -235,7 +241,7 @@ function Experience() {
                                hover:border-emerald-500/60
                                hover:shadow-[0_25px_45px_-15px_rgba(16,185,129,0.35)]"
                   >
-                    {/* Logo with idle float */}
+                    {/* Logo */}
                     {logo && (
                       <motion.div
                         animate={{ y: [0, -6, 0] }}
