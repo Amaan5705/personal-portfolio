@@ -192,6 +192,7 @@ const experiences = [
         org: "BMSCE",
         impact: [
           "Sponsor outreach",
+          "Fundraising support",
           "Budget coordination",
         ],
         points: [
@@ -247,7 +248,11 @@ function Experience() {
                   >
                     {logo && (
                       <div className="absolute -top-6 left-6 rounded-xl p-2 bg-slate-950 border border-slate-700">
-                        <img src={logo} className="w-10 h-10 object-contain" />
+                        <img
+                          src={logo}
+                          alt="logo"
+                          className="w-10 h-10 object-contain"
+                        />
                       </div>
                     )}
 
@@ -263,7 +268,7 @@ function Experience() {
                           {role.title}
                         </h3>
 
-                        {/* ✅ TAGS WITH WORKING HOVER */}
+                        {/* ✅ TAGS WITH WORKING HOVER ANIMATION */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {role.impact.map((tag, i) => (
                             <motion.span
@@ -274,9 +279,11 @@ function Experience() {
                                 stiffness: 300,
                                 damping: 15,
                               }}
-                              className="px-3 py-1 text-xs rounded-full
+                              className="px-3 py-1 text-xs font-medium rounded-full
                                          bg-gradient-to-r from-emerald-500/15 to-cyan-500/15
                                          text-emerald-300 border border-emerald-400/30
+                                         cursor-default
+                                         hover:border-cyan-400
                                          hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]"
                             >
                               {tag}
