@@ -4,7 +4,7 @@ function Navbar() {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll spy (active section)
+  // Active section (scroll spy)
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
@@ -16,9 +16,7 @@ function Navbar() {
           }
         });
       },
-      {
-        rootMargin: "-50% 0px -50% 0px",
-      }
+      { rootMargin: "-50% 0px -50% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -30,7 +28,6 @@ function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -44,12 +41,11 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300
-        backdrop-blur-xl
+      className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-xl
         ${
           scrolled
-            ? "bg-gradient-to-r from-[#0f172a]/90 via-[#020617]/90 to-[#0f172a]/90 shadow-[0_0_25px_rgba(99,102,241,0.25)] border-b border-indigo-500/30"
-            : "bg-gradient-to-r from-[#0f172a]/70 via-[#020617]/70 to-[#0f172a]/70 border-b border-indigo-500/20"
+            ? "bg-white/10 shadow-[0_0_20px_rgba(99,102,241,0.2)] border-b border-white/20"
+            : "bg-white/5 border-b border-white/10"
         }
       `}
     >
@@ -70,10 +66,10 @@ function Navbar() {
                 ${
                   active === link.id
                     ? "text-white"
-                    : "text-gray-300 hover:text-white"
+                    : "text-gray-200 hover:text-white"
                 }
                 after:content-[''] after:absolute after:left-0 after:-bottom-1
-                after:h-[2px] after:bg-violet-500 after:transition-all after:duration-300
+                after:h-[2px] after:bg-indigo-400 after:transition-all after:duration-300
                 ${
                   active === link.id
                     ? "after:w-full"
