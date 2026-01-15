@@ -2,63 +2,88 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 
+// HERO BACKGROUND IMAGE
+import heroBg from "./assets/hero/hero-bg.jpg";
+
 function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-gray-200 flex flex-col">
       <Navbar />
 
-      {/* Spacing fix for fixed navbar */}
-      <main className="pt-24 flex-grow">
+      <main className="flex-grow">
 
         {/* ================= HERO SECTION ================= */}
         <section
           id="home"
-          className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 overflow-hidden"
+          className="relative flex flex-col items-center justify-center
+                     min-h-screen pt-16 text-center px-4 overflow-hidden"
         >
-          {/* Background Glow */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 bg-indigo-500/20 blur-[120px] rounded-full" />
-            <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-cyan-400/10 blur-[100px] rounded-full" />
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{ backgroundImage: `url(${heroBg})` }}
+          />
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+
+          {/* Glow Effects */}
+          <div className="absolute inset-0 z-20 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px]
+                            -translate-x-1/2 -translate-y-1/2
+                            bg-indigo-500/20 blur-[120px] rounded-full" />
+            <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px]
+                            bg-cyan-400/10 blur-[100px] rounded-full" />
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-            Amaan’s Portfolio 🚀
-          </h1>
+          {/* Hero Content */}
+          <div className="relative z-30 max-w-3xl">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+              Amaan’s Portfolio 🚀
+            </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 mb-10">
-            CSE Student · AI · Game Dev · Web
-          </p>
+            <p className="text-lg md:text-xl text-gray-300 mb-10">
+              CSE Student · AI · Game Dev · Web
+            </p>
 
-          <div className="flex gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition hover:scale-[1.02]"
-            >
-              View Projects
-            </a>
+            <div className="flex gap-4 justify-center">
+              <a
+                href="#projects"
+                className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500
+                           rounded-lg font-semibold transition hover:scale-[1.02]"
+              >
+                View Projects
+              </a>
 
-            <a
-              href="#contact"
-              className="px-6 py-3 border border-gray-600 hover:bg-gray-800 rounded-lg font-semibold transition hover:scale-[1.02]"
-            >
-              Contact Me
-            </a>
+              <a
+                href="#contact"
+                className="px-6 py-3 border border-gray-400
+                           hover:bg-white/10 rounded-lg font-semibold transition
+                           hover:scale-[1.02]"
+              >
+                Contact Me
+              </a>
+            </div>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 flex flex-col items-center text-gray-400 text-sm animate-bounce">
+          <div className="absolute bottom-8 z-30 flex flex-col
+                          items-center text-gray-300 text-sm animate-bounce">
             <span>Scroll</span>
             <span className="text-xl">↓</span>
           </div>
         </section>
 
         {/* ================= ABOUT SECTION ================= */}
-        <section id="about" className="py-32 px-6 bg-slate-950">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section
+          id="about"
+          className="scroll-mt-24 py-40 px-6 bg-slate-950"
+        >
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            {/* About Text */}
+            {/* LEFT: ABOUT TEXT */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">
                 About Me
               </h2>
 
@@ -77,17 +102,33 @@ function App() {
               </p>
             </div>
 
-            {/* Skill Highlights */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* RIGHT: SKILL CARDS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { title: "AI & ML", desc: "Computer Vision, LLMs, Edge AI" },
-                { title: "Web Dev", desc: "React, Vite, Tailwind CSS" },
-                { title: "Game Dev", desc: "Interactive browser-based games" },
-                { title: "Problem Solving", desc: "DSA & real-world logic" },
+                {
+                  title: "AI & ML",
+                  desc: "Computer Vision, LLMs, Edge AI",
+                },
+                {
+                  title: "Web Dev",
+                  desc: "React, Vite, Tailwind CSS",
+                },
+                {
+                  title: "Game Dev",
+                  desc: "Interactive browser-based games",
+                },
+                {
+                  title: "Problem Solving",
+                  desc: "DSA & real-world logic",
+                },
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-indigo-500 transition hover:-translate-y-1"
+                  className="bg-slate-900/80 backdrop-blur
+                             border border-slate-800
+                             rounded-xl p-6
+                             hover:border-indigo-500
+                             transition hover:-translate-y-1"
                 >
                   <h3 className="font-semibold mb-2">
                     {item.title}
@@ -102,16 +143,20 @@ function App() {
           </div>
         </section>
 
-        {/* ================= PROJECTS SECTION ================= */}
-        <Projects />
+        {/* ================= PROJECTS ================= */}
+        <section id="projects" className="scroll-mt-24">
+          <Projects />
+        </section>
 
-        {/* ================= EXPERIENCE SECTION ================= */}
-        <Experience />
+        {/* ================= EXPERIENCE ================= */}
+        <section id="experience" className="scroll-mt-24">
+          <Experience />
+        </section>
 
-        {/* ================= CONTACT SECTION ================= */}
+        {/* ================= CONTACT ================= */}
         <section
           id="contact"
-          className="py-32 px-6 bg-slate-900 text-center"
+          className="scroll-mt-24 py-32 px-6 bg-slate-900 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Contact Me
@@ -123,39 +168,18 @@ function App() {
 
           <a
             href="mailto:your-email@example.com"
-            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-semibold transition hover:scale-[1.02]"
+            className="inline-block px-6 py-3 bg-indigo-600
+                       hover:bg-indigo-500 rounded-lg font-semibold transition"
           >
             Send Email
           </a>
         </section>
-
       </main>
 
       {/* ================= FOOTER ================= */}
       <footer className="border-t border-slate-800 py-6 text-center text-sm text-gray-400">
-        <p>
-          © {new Date().getFullYear()} Amaan · Built with React & Tailwind CSS
-        </p>
-
-        <div className="mt-2 flex justify-center gap-6">
-          <a
-            href="https://github.com/Amaan5705"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition"
-          >
-            GitHub
-          </a>
-
-          <a
-            href="mailto:your-email@example.com"
-            className="hover:text-white transition"
-          >
-            Email
-          </a>
-        </div>
+        © {new Date().getFullYear()} Amaan · Built with React & Tailwind CSS
       </footer>
-
     </div>
   );
 }
