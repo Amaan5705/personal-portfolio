@@ -101,7 +101,9 @@ function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover
+                             transition-transform duration-500
+                             group-hover:scale-[1.03]"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-500 text-sm">
@@ -109,12 +111,17 @@ function Projects() {
                 </div>
               )}
 
+              {/* IMAGE GRADIENT */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
+              {/* 🔥 BADGE — FIXED VISIBILITY */}
               <span
-                className="absolute top-4 left-4 text-xs px-3 py-1 rounded-full
-                           bg-emerald-500/20 text-emerald-400
-                           border border-emerald-500/30"
+                className="absolute top-4 left-4 z-20
+                           px-3 py-1 text-xs font-semibold
+                           rounded-full
+                           bg-black/60 backdrop-blur-md
+                           text-emerald-400
+                           border border-emerald-400/30"
               >
                 {project.badge}
               </span>
@@ -130,7 +137,7 @@ function Projects() {
                 {project.description}
               </p>
 
-              {/* TECH PILLS – FIXED */}
+              {/* TECH PILLS */}
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
                   <span
@@ -145,8 +152,7 @@ function Projects() {
                     <img
                       src={techConfig[tech]?.logo}
                       alt={tech}
-                      className="w-4 h-4
-                                 brightness-90
+                      className="w-4 h-4 brightness-90
                                  transition-all duration-200
                                  group-hover:brightness-110"
                     />
