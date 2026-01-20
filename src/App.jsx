@@ -6,18 +6,16 @@ import Experience from "./components/Experience";
 import ScrollIndicator from "./components/ScrollIndicator";
 
 import heroBg from "./assets/hero/hero-bg.jpg";
+import avatar from "./assets/profile/avatar.png";
 
 function App() {
   const { scrollY } = useScroll();
 
-  /* ================= HERO SCROLL TRANSFORMS ================= */
   const titleY = useTransform(scrollY, [0, 520], [0, -95]);
   const titleOpacity = useTransform(scrollY, [140, 560], [1, 0]);
   const subOpacity = useTransform(scrollY, [90, 430], [1, 0]);
   const buttonOpacity = useTransform(scrollY, [70, 300], [1, 0]);
-  const scrollOpacity = useTransform(scrollY, [180, 520], [1, 0]);
 
-  /* ================= TERMINAL NAME TYPING ================= */
   const fullText = "Amaan";
   const [text, setText] = useState("");
   const [cursor, setCursor] = useState(true);
@@ -42,37 +40,22 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-[#020617] text-gray-200 overflow-x-hidden">
-      {/* ================= BACKGROUND ================= */}
+      {/* BACKGROUND */}
       <div
         className="fixed inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       <div className="fixed inset-0 z-10 bg-black/70" />
 
-      {/* ================= TOP LEFT TERMINAL NAME ================= */}
+      {/* TERMINAL NAME */}
       <div className="fixed top-6 left-6 z-50">
         <a
           href="#home"
-          className="
-            inline-flex items-center
-            rounded-xl
-            bg-black/80
-            border border-emerald-400/80
-            shadow-[0_0_22px_rgba(34,197,94,0.45)]
-            hover:shadow-[0_0_32px_rgba(34,197,94,0.65)]
-            transition-shadow
-          "
+          className="inline-flex items-center rounded-xl bg-black/80
+                     border border-[#39ff14]
+                     shadow-[0_0_22px_rgba(57,255,20,0.6)]"
         >
-          <span
-            className="
-              flex items-center
-              px-5 py-2
-              font-mono font-bold
-              text-emerald-400
-              text-base
-              leading-none
-            "
-          >
+          <span className="flex items-center px-5 py-2 font-mono font-bold text-[#39ff14]">
             <span className="mr-2">{">_"}</span>
             <span className="inline-block w-[5.6ch]">{text}</span>
             <span className="ml-1">{cursor ? "|" : "\u00A0"}</span>
@@ -83,12 +66,12 @@ function App() {
       <ScrollIndicator />
 
       <main className="relative z-20">
-        {/* ================= HERO ================= */}
+        {/* HERO */}
         <section
           id="home"
           className="min-h-screen flex flex-col items-center justify-center text-center px-4"
         >
-          <div className="translate-y-12 md:translate-y-16">
+          <div className="mt-20 md:mt-28 lg:mt-32">
             <motion.h1
               style={{ y: titleY, opacity: titleOpacity }}
               className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5"
@@ -100,29 +83,74 @@ function App() {
               style={{ opacity: subOpacity }}
               className="text-lg text-gray-300 mb-12"
             >
-              CSE Student · AI · Full Stack · Web
+              CSE Student · Machine Learning · Full Stack
             </motion.p>
+          </div>
+        </section>
 
-            <motion.div
-              style={{ opacity: buttonOpacity }}
-              className="flex gap-4 justify-center"
-            >
-              <a
-                href="#projects"
-                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500
-                           rounded-xl font-semibold transition hover:scale-105"
-              >
-                View Projects
-              </a>
+        {/* PROFILE OVERVIEW */}
+        <section className="py-32 px-6">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-14">
 
-              <a
-                href="#contact"
-                className="px-8 py-4 border border-gray-400/70
-                           hover:bg-white/10 rounded-xl font-semibold transition hover:scale-105"
+            {/* LEFT */}
+            <div className="flex flex-col items-center">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-[#39ff14]/30 blur-2xl" />
+                <img
+                  src={avatar}
+                  alt="Amaan"
+                  className="relative z-10 w-60 h-60 rounded-full
+                             border-[4px] border-[#39ff14]
+                             shadow-[0_0_28px_rgba(57,255,20,0.8)]"
+                />
+              </div>
+
+              <div
+                className="
+                  mt-6 flex items-center gap-2
+                  px-6 py-2 rounded-full
+                  bg-black/90
+                  border border-[#39ff14]
+                  text-[#39ff14] text-xs font-semibold tracking-widest
+                  cursor-pointer
+                  transition-all duration-300
+                  hover:shadow-[0_0_28px_rgba(57,255,20,0.9)]
+                  hover:scale-105
+                "
               >
-                Contact Me
-              </a>
-            </motion.div>
+                <span className="w-2 h-2 rounded-full bg-[#39ff14] animate-pulse" />
+                AVAILABLE FOR HIRE
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="space-y-10">
+              <div className="grid sm:grid-cols-2 gap-5">
+                {[
+                  ["📍 Location", "India"],
+                  ["🌐 Languages", "English, Hindi, Kannada"],
+                  ["🏛️ College", "BMS College of Engineering"],
+                  ["🎓 Major", "CSE (Core)"],
+                  ["🤖 Fields", "Machine Learning, Full Stack Development"],
+                  ["👨🏻‍💻 Role", "Intern"],
+                ].map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="rounded-xl bg-white/5 backdrop-blur
+                               border border-white/10 p-5
+                               hover:border-[#39ff14]/50 transition"
+                  >
+                    <p className="text-sm font-semibold text-[#6EE7B7] tracking-wide">
+                      {label}
+                    </p>
+                    <p className="mt-1 text-base font-medium text-white">
+                      {value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -193,42 +221,8 @@ function App() {
           </div>
         </section>
 
-        {/* ================= PROJECTS ================= */}
-        <section id="projects" className="relative z-30">
-          <Projects />
-        </section>
-
-        {/* ================= EXPERIENCE ================= */}
-        <section id="experience" className="relative z-30">
-          <Experience />
-        </section>
-
-        {/* ================= CONTACT ================= */}
-        <section
-          id="contact"
-          className="relative z-30 py-32 px-6 bg-slate-900 text-center"
-        >
-          <h2
-            className="
-              text-4xl font-bold mb-6
-              bg-gradient-to-r from-white to-indigo-400
-              bg-clip-text text-transparent
-            "
-            style={{
-              textShadow:
-                "0 0 14px rgba(255,255,255,0.25), 0 0 30px rgba(99,102,241,0.35)",
-            }}
-          >
-            Contact Me
-          </h2>
-          <a
-            href="mailto:amaan05.mo@email.com"
-            className="inline-block px-10 py-4 bg-indigo-600 hover:bg-indigo-500
-                       rounded-xl font-semibold transition"
-          >
-            Send Email
-          </a>
-        </section>
+        <section id="projects"><Projects /></section>
+        <section id="experience"><Experience /></section>
 
         <footer className="border-t border-slate-800 py-6 text-center text-xs text-gray-400">
           © {new Date().getFullYear()} Amaan
