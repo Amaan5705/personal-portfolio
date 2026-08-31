@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 // PROJECT IMAGES
 import trafficImg from "../assets/projects/ai-traffic-real.jpg";
 import nanogptImg from "../assets/projects/nanogpt-pi.jpg";
+import mybmsceImg from "../assets/projects/mybmsce.png";
 
 // CUSTOM LANGCHAIN LOGO
 import langchainLogo from "../assets/logos/langchain.png";
@@ -12,29 +13,45 @@ const techConfig = {
   Python: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   },
+
   React: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
+
+  "React Native": {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+
   "Node.js": {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
+
   OpenCV: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
   },
+
   PyTorch: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
   },
+
   HuggingFace: {
     logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
   },
+
   LangChain: {
     logo: langchainLogo,
   },
+
   Vite: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
   },
+
   "Tailwind CSS": {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  },
+
+  Firebase: {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   },
 };
 
@@ -48,6 +65,7 @@ function Projects() {
       badge: "AI / CV",
       image: trafficImg,
     },
+
     {
       title: "NanoGPT on Raspberry Pi",
       description:
@@ -56,13 +74,14 @@ function Projects() {
       badge: "Edge AI",
       image: nanogptImg,
     },
+
     {
-      title: "Personal Portfolio",
+      title: "MyBMSCE",
       description:
-        "My personal portfolio website showcasing projects, experience, and skills with a modern UI.",
-      tech: ["React", "Vite", "Tailwind CSS"],
-      badge: "Web App",
-      image: null,
+        "Centralized mobile application for BMSCE students to access Attendance, Marks, Announcements, Events & Class updates.",
+      tech: ["React Native", "Firebase", "Tailwind CSS"],
+      badge: "Mobile App",
+      image: mybmsceImg,
     },
   ];
 
@@ -71,6 +90,7 @@ function Projects() {
       id="projects"
       className="py-32 px-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
     >
+      {/* SECTION TITLE */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -81,6 +101,7 @@ function Projects() {
         Projects
       </motion.h2>
 
+      {/* PROJECT GRID */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14">
         {featuredProjects.map((project, index) => (
           <motion.div
@@ -88,50 +109,61 @@ function Projects() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+            }}
             className="relative rounded-2xl overflow-hidden
-                       border border-slate-800 bg-slate-950
+                       border border-slate-800
+                       bg-slate-950
                        hover:border-emerald-400
                        hover:shadow-[0_0_35px_rgba(52,211,153,0.22)]
                        transition-all duration-300"
           >
-            {/* IMAGE */}
+            {/* ================= IMAGE ================= */}
             <div className="relative h-72 bg-black overflow-hidden">
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover
-                             transition-transform duration-500
-                             group-hover:scale-[1.03]"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-500 text-sm">
-                  Image coming soon
-                </div>
-              )}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-contain
+                           transition-transform duration-500
+                           hover:scale-[1.02]"
+              />
 
               {/* IMAGE GRADIENT */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div
+                className="absolute inset-0
+                           bg-gradient-to-t
+                           from-black/80
+                           via-black/20
+                           to-transparent
+                           pointer-events-none"
+              />
 
-              {/* 🔥 BADGE — FIXED VISIBILITY */}
+              {/* BADGE */}
               <span
                 className="absolute top-4 left-4 z-20
-                           px-3 py-1 text-xs font-semibold
+                           px-3 py-1
+                           text-xs font-semibold
                            rounded-full
-                           bg-black/60 backdrop-blur-md
+                           bg-black/60
+                           backdrop-blur-md
                            text-emerald-400
                            border border-emerald-400/30"
               >
                 {project.badge}
               </span>
 
-              <h3 className="absolute bottom-6 left-6 text-2xl font-bold text-white">
+              {/* PROJECT TITLE */}
+              <h3
+                className="absolute bottom-6 left-6
+                           text-2xl font-bold text-white z-10"
+              >
                 {project.title}
               </h3>
             </div>
 
-            {/* CONTENT */}
+            {/* ================= CONTENT ================= */}
             <div className="p-6">
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
                 {project.description}
@@ -143,19 +175,25 @@ function Projects() {
                   <span
                     key={tech}
                     className="group inline-flex items-center gap-2
-                               px-3 py-1.5 rounded-md
-                               bg-black border border-slate-700
+                               px-3 py-1.5
+                               rounded-md
+                               bg-black
+                               border border-slate-700
                                text-sm text-gray-200
                                transition-all duration-200
                                hover:border-slate-400"
                   >
-                    <img
-                      src={techConfig[tech]?.logo}
-                      alt={tech}
-                      className="w-4 h-4 brightness-90
-                                 transition-all duration-200
-                                 group-hover:brightness-110"
-                    />
+                    {techConfig[tech]?.logo && (
+                      <img
+                        src={techConfig[tech].logo}
+                        alt={tech}
+                        className="w-4 h-4
+                                   brightness-90
+                                   transition-all duration-200
+                                   group-hover:brightness-110"
+                      />
+                    )}
+
                     {tech}
                   </span>
                 ))}
@@ -169,4 +207,3 @@ function Projects() {
 }
 
 export default Projects;
-
